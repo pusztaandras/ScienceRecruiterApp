@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ScienceRecruiterApp.Model.Tasks.AET.TrialPage_ProgAet"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <StackLayout Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                <Image x:Name="CenterImage"/>
+            </StackLayout>
+            <StackLayout x:Name="LeftImageView" Grid.Column="0" Grid.Row="1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                
+                <Label x:Name="LeftImage" FontSize="36" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+            </StackLayout>
+            <StackLayout x:Name="RightImageView" Grid.Column="3" Grid.Row="1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                
+                <Label x:Name="RightImage" FontSize="36" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+            </StackLayout>
+
+            <StackLayout x:Name="FeedbackView" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                <Label x:Name="FeedbackImage" FontSize="24" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+            </StackLayout>
+
+            <StackLayout Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="2">
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="LeftImageView_Tapped"/>
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+            <StackLayout Grid.Row="0" Grid.RowSpan="2" Grid.Column="2" Grid.ColumnSpan="2">
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="RightImageView_Tapped"/>
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

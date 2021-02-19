@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ScienceRecruiterApp.View.MyProfilePage"
+             xmlns:sfCombobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
+             xmlns:listcollection="ListCollection">
+    <ContentPage.Content>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="4*"/>
+            </Grid.RowDefinitions>
+            <Label Text="My Profile" Grid.Row="0" Grid.ColumnSpan="2" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+            <Label Text="(Tap long to change parameters)" Grid.Row="0" Grid.ColumnSpan="2" HorizontalOptions="CenterAndExpand" VerticalOptions="End"/>
+
+            <Frame Grid.Row="1" BackgroundColor="AliceBlue"
+                       BorderColor="Black"
+                       CornerRadius="50"
+                       Grid.Column="0"
+                       Padding="0">
+                <Label Text="Pic here" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+            </Frame>
+            <TableView Grid.Column="1" Grid.Row="1"
+                       RowHeight="50">
+                <TableRoot>
+                    <TableSection>
+                        <TextCell Text="Name" Detail="My Name"/>
+                    </TableSection>
+                    <TableSection>
+                        <TextCell Text="Email" Detail="aaa@aaa.hu"/>
+                    </TableSection>
+                    <TableSection>
+                        <TextCell Text="Age" Detail="xxx"/>
+                    </TableSection>
+                    <TableSection>
+                        <TextCell Text="Gender" Detail="male"/>
+                    </TableSection>
+                    
+                    
+                    
+                </TableRoot>
+
+            </TableView>
+
+            <StackLayout Grid.Row="2" Grid.ColumnSpan="2" >
+                <TableView RowHeight="60">
+                    <TableRoot>
+                        <TableSection Title="My Roles">
+                            <SwitchCell x:Name="participantSwitch" Text="Participant"/>
+                            <SwitchCell x:Name="scientistSwitch"  Text="Scientist"/>
+                        </TableSection>
+                        
+                        
+                    </TableRoot>
+                </TableView>
+            </StackLayout>
+            <Label Grid.Row="2" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand" Text="Privacy Policy"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

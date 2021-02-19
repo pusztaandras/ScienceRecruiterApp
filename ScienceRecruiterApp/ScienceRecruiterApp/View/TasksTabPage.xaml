@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:progressBar="clr-namespace:Syncfusion.XForms.ProgressBar;assembly=Syncfusion.SfProgressBar.XForms"
+             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             xmlns:expander="clr-namespace:Syncfusion.XForms.Expander;assembly=Syncfusion.Expander.XForms"
+             x:Class="ScienceRecruiterApp.View.TasksTabPage"
+             Title="Tasks">
+    <ContentPage.Content>
+
+        
+
+        
+            <StackLayout>
+                
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="3*"/>
+                        <RowDefinition Height="0.1*"/>
+                    </Grid.RowDefinitions>
+                    <StackLayout Grid.Row="0">
+                        <Label Text="My tasks" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Center" FontSize="Large" />
+                        <CarouselView x:Name="carouselView" PeekAreaInsets="100" Loop="False" CurrentItemChanged="ProgressBar_Changed">
+                            <CarouselView.ItemTemplate>
+                                <DataTemplate>
+
+                                    <StackLayout>
+                                        <StackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="ProgressBar_Tapped"/>
+                                        </StackLayout.GestureRecognizers>
+
+                                        <progressBar:SfCircularProgressBar x:Name="CircularProgressBar"
+                                                               Progress="{Binding ProgressInt}"
+                                                               HorizontalOptions="CenterAndExpand"
+                                                               VerticalOptions="CenterAndExpand"
+                                                               Maximum="{Binding MaximumTrials}"
+                                                               EasingEffect="SinIn">
+                                            <progressBar:SfCircularProgressBar.Content>
+                                                <Grid>
+                                                    <StackLayout>
+                                                        <Label Text="{Binding ShortTitle}" HorizontalOptions="Center" VerticalOptions="Center" HorizontalTextAlignment="Center" LineBreakMode="WordWrap"/>
+                                                    </StackLayout>
+                                                </Grid>
+
+                                            </progressBar:SfCircularProgressBar.Content>
+                                        </progressBar:SfCircularProgressBar>
+                                    </StackLayout>
+                                </DataTemplate>
+                            </CarouselView.ItemTemplate>
+                        </CarouselView>
+                        <!--<IndicatorView x:Name="indicatorView"
+                   IndicatorColor="LightGray"
+                   SelectedIndicatorColor="DarkGray"
+                   HorizontalOptions="Center" />-->
+                    </StackLayout>
+                    <StackLayout Grid.Row="1">
+                        <expander:SfExpander x:Name="InfoExpander"  HeaderIconPosition="None" HeaderBackgroundColor="Beige">
+                            <expander:SfExpander.Header>
+                                <Label Text="" />
+                            </expander:SfExpander.Header>
+                            <expander:SfExpander.Content>
+                            <RefreshView x:Name="refreshView">
+                                <ScrollView>
+                                    <Grid BackgroundColor="Beige">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="*" />
+
+                                        </Grid.RowDefinitions>
+
+                                        <StackLayout Grid.Row="0" >
+                                            <Label Text="{Binding Title}" Grid.Column="1" Grid.Row="0"
+                                             HorizontalTextAlignment="Center"
+                                             VerticalTextAlignment="Center"
+                                             FontSize="Title"/>
+                                            <Label Text="{Binding InvitedBy}" HorizontalOptions="End"/>
+                                            <Label Text="{Binding ShortDescription}" FontAttributes="Italic" HorizontalTextAlignment="Center"/>
+
+                                            <Grid>
+                                                <StackLayout>
+                                                    <Label Text="{Binding ProgressStr}" HorizontalOptions="Center" VerticalOptions="Center" HorizontalTextAlignment="Center" LineBreakMode="WordWrap"/>
+                                                </StackLayout>
+                                            </Grid>
+
+                                            <Button Text="Start Task" Command="{Binding LoadPage}" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                        </StackLayout>
+                                        <StackLayout Grid.Row="1">
+                                            <Grid>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="3*" />
+                                                    <RowDefinition Height="*" />
+                                                </Grid.RowDefinitions>
+
+                                                <Label Text="{Binding LongDescription}" FontAttributes="Italic" HorizontalTextAlignment="Center" HorizontalOptions="Center" LineBreakMode="WordWrap" Grid.Row="0"/>
+
+                                                <buttons:SfButton
+                                                     Grid.Row="1"
+                                                     VerticalOptions="Center"
+                                                     HorizontalOptions="End"
+                                                     CornerRadius="100"
+                                                     HasShadow="True"
+                                                     BorderWidth="1"
+                                                     BorderColor="Gray"
+                                                     BackgroundColor="#538EEC"
+                                                     ImageSource="Basket.png"
+                                                     ShowIcon="True"
+                                                     ImageAlignment="End"
+                                                     Text="Use invitation code"
+                                                     Command="{Binding GetSciID}">
+
+                                                </buttons:SfButton>
+                                            </Grid>
+                                        </StackLayout>
+
+
+                                    </Grid>
+                                </ScrollView>
+                            </RefreshView>
+                        </expander:SfExpander.Content>
+                        </expander:SfExpander>
+                    </StackLayout>
+
+
+                </Grid>
+
+            
+            </StackLayout>
+            
+        
+        
+    </ContentPage.Content>
+</ContentPage>

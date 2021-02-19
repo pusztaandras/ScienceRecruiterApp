@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ScienceRecruiterApp.ViewModel.GoodByePage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label x:Name="label"
+                FontSize="Large"   
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+            </StackLayout.GestureRecognizers>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

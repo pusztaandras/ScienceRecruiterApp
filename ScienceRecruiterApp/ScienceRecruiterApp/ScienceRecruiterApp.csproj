@@ -1,0 +1,156 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Model\Tasks\AET\Pictures\4\1.png" />
+    <EmbeddedResource Include="Model\Tasks\AET\Pictures\4\2.png" />
+    <EmbeddedResource Include="Model\Tasks\AET\Pictures\4\3.png" />
+    <EmbeddedResource Include="Model\Tasks\AET\Pictures\4\4.png" />
+    <EmbeddedResource Include="Model\Tasks\AET\Pictures\4\5.png" />
+    <EmbeddedResource Include="Model\Tasks\AET\Pictures\4\6.png" />
+    <EmbeddedResource Include="Model\Tasks\AET\Pictures\6\1.png" />
+    <EmbeddedResource Include="Model\Tasks\AET\Pictures\6\2.png" />
+    <EmbeddedResource Include="Model\Tasks\AET\Pictures\6\3.png" />
+    <EmbeddedResource Include="Model\Tasks\AET\Pictures\6\4.png" />
+    <EmbeddedResource Include="Model\Tasks\AET\Pictures\6\5.png" />
+    <EmbeddedResource Include="Model\Tasks\AET\Pictures\6\6.png" />
+    <EmbeddedResource Include="Model\Tasks\AET\Pictures\No.jpg" />
+    <EmbeddedResource Include="Model\Tasks\AET\Pictures\vege_41.png" />
+    <EmbeddedResource Include="Model\Tasks\AET\Pictures\vege_42.png" />
+    <EmbeddedResource Include="Model\Tasks\AET\Pictures\vege_43.png" />
+    <EmbeddedResource Include="Model\Tasks\AET\Pictures\vege_44.png" />
+    <EmbeddedResource Include="Model\Tasks\AET\Pictures\vege_61.png" />
+    <EmbeddedResource Include="Model\Tasks\AET\Pictures\vege_62.png" />
+    <EmbeddedResource Include="Model\Tasks\AET\Pictures\vege_63.png" />
+    <EmbeddedResource Include="Model\Tasks\AET\Pictures\vege_64.png" />
+    <EmbeddedResource Include="Model\Tasks\AET\Pictures\vege_65.png" />
+    <EmbeddedResource Include="Model\Tasks\AET\Pictures\vege_66.png" />
+    <EmbeddedResource Include="Model\Tasks\SST\Pictures\Go.bmp" />
+    <EmbeddedResource Include="Model\Tasks\SST\Pictures\GoL.bmp" />
+    <EmbeddedResource Include="Model\Tasks\SST\Pictures\GoR.bmp" />
+    <EmbeddedResource Include="Model\Tasks\SST\Pictures\High.bmp" />
+    <EmbeddedResource Include="Model\Tasks\SST\Pictures\Left.bmp" />
+    <EmbeddedResource Include="Model\Tasks\SST\Pictures\Low.bmp" />
+    <EmbeddedResource Include="Model\Tasks\SST\Pictures\Right.bmp" />
+    <EmbeddedResource Include="Model\Tasks\SST\Pictures\Stop.bmp" />
+    <EmbeddedResource Include="Pictures\qm.png" />
+    <EmbeddedResource Include="Pictures\Goal_Penguins.jpg" />
+    <EmbeddedResource Include="Pictures\homeicon.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pictures\SciRecLogo.jpg" />
+    <EmbeddedResource Include="Pictures\SciRecLogo_trpbckgr.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Azure.Mobile.Client" Version="4.2.0" />
+    <PackageReference Include="Microsoft.Azure.Mobile.Client.SQLiteStore" Version="4.2.0" />
+    <PackageReference Include="Microsoft.Net.Http" Version="2.2.29" />
+    <PackageReference Include="MySql.Data" Version="8.0.22" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Rg.Plugins.Popup" Version="2.0.0.10" />
+    <PackageReference Include="SkiaSharp" Version="2.80.2" />
+    <PackageReference Include="SkiaSharp.Views" Version="2.80.2" />
+    <PackageReference Include="SkiaSharp.Views.Forms" Version="2.80.2" />
+    <PackageReference Include="sqlite-net-pcl" Version="1.7.335" />
+    <PackageReference Include="Syncfusion.Xamarin.Buttons" Version="18.4.0.34" />
+    <PackageReference Include="Syncfusion.Xamarin.Expander" Version="18.4.0.35" />
+    <PackageReference Include="Syncfusion.Xamarin.SfComboBox" Version="18.4.0.34" />
+    <PackageReference Include="Syncfusion.Xamarin.SfProgressBar" Version="18.4.0.34" />
+    <PackageReference Include="Syncfusion.Xamarin.SfRangeSlider" Version="18.4.0.34" />
+    <PackageReference Include="Syncfusion.Xamarin.SfTabView" Version="18.4.0.34" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.1874" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.6.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="View\MainMenuPage.xaml.cs">
+      <DependentUpon>MainMenuPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="View\AnimationPage.xaml.cs">
+      <DependentUpon>AnimationPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Model\Tasks\AET\InstrBlock_ProgAet.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Model\Tasks\AET\IntroPage_ProgAet.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Model\Tasks\SST\SST_Intro_0.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Model\Tasks\Stroop\InstrPage_Stroop.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Model\Tasks\Stroop\TrialPage_Stroop.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Model\Tasks\AET\TrialPage_ProgAet.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ViewModel\FilterPopPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ViewModel\FilterPopUpPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ViewModel\GoodByePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="View\FirstPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="View\FlyoutMenuPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="View\LoginPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="View\MainMenuPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="View\MyProfilePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="View\AnimationPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="View\Participant_MainPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="View\RegisterPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="View\ResultsTabPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="View\Scientist_MainPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="View\SecondPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="View\TasksTabPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

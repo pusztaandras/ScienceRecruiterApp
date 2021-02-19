@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ScienceRecruiterApp.View.Participant_MainPage"
+             xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"  
+             xmlns:tabView="clr-namespace:Syncfusion.XForms.TabView;assembly=Syncfusion.SfTabView.XForms"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <RefreshView x:Name="refreshView">
+            <ScrollView>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="80" />
+                        <RowDefinition Height="80" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="80" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Frame BackgroundColor="AliceBlue"
+                       BorderColor="Black"
+                       CornerRadius="50"
+                       Grid.Column="0"
+                       Padding="0">
+                            <Label Text="Pic here" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        </Frame>
+                        <Label Text="Random Ralph" Grid.Column="1" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"/>
+
+                        <ImageButton
+                    Grid.Column="2"
+                    WidthRequest="30"
+                    HeightRequest="30"
+                    x:Name="homeButton"
+                    VerticalOptions="Start"
+                    HorizontalOptions="End"
+                    Clicked="homeButton_Clicked"/>
+
+                    </Grid>
+                    <FlexLayout Grid.Row="1"
+                        JustifyContent="SpaceAround"
+                        Direction="Column"
+                        AlignItems="Center">
+                        <Label Text="Some Info about Ralph"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+                        <Label Text="Achievments"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+                    </FlexLayout>
+
+
+                    <tabView:SfTabView x:Name="ParticipantsTabs"
+                               VisibleHeaderCount="2"
+                               Grid.Row="3"
+                               BackgroundColor="Beige"
+                               SelectedIndex="0">
+                        <tabView:SfTabItem Title="Tasks">
+                            <tabView:SfTabItem.Content>
+                                <FlexLayout JustifyContent="SpaceAround"
+                                    AlignItems="Center"
+                                    Direction="Column">
+                                    <Frame>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Image x:Name="sst_icon" />
+                                            <StackLayout Orientation="Vertical">
+                                                <Label Text="Stop signal task" />
+                                                <Label x:Name="sst_curr"  Text="Some info"  />
+                                                <Button Text="Start SST" Clicked="StartButton_Clicked"/>
+                                            </StackLayout>
+
+                                        </StackLayout>
+
+                                    </Frame>
+
+                                    <Frame>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Frame BorderColor="Black" CornerRadius="30">
+                                                <Label Text="Red" TextColor="Green" VerticalOptions="CenterAndExpand"/>
+                                            </Frame>
+                                            <StackLayout Orientation="Vertical">
+                                                <Label Text="Stroop task" />
+                                                <Label x:Name="stroop_curr" Text="Some info"  />
+                                                <Button Text="Start Stroop" Clicked="StroopButton_Clicked"/>
+                                            </StackLayout>
+
+                                        </StackLayout>
+
+                                    </Frame>
+
+
+                                </FlexLayout>
+                            </tabView:SfTabItem.Content>
+                        </tabView:SfTabItem>
+
+                        <tabView:SfTabItem Title="Results">
+                            <tabView:SfTabItem.Content>
+                                <Grid x:Name="resultsGrid">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="150" />
+                                        <RowDefinition Height="50" />
+                                        <RowDefinition Height="100" />
+                                        <RowDefinition Height="50" />
+                                    </Grid.RowDefinitions>
+                                    <Frame BorderColor="Black"
+                                   Grid.Row="0"
+                                   CornerRadius="30"
+                                   Padding="10">
+                                        <Grid>
+                                            <Label Text="Monthly streaks*" Grid.Column="0" Grid.Row="1"/>
+                                            <Image x:Name="questionmark" Grid.Column="0" Grid.Row="1" HorizontalOptions="Center" HeightRequest="10">
+                                                <Image.GestureRecognizers>
+                                                    <TapGestureRecognizer Tapped="questionmark_Tapped" />
+                                                </Image.GestureRecognizers>
+                                            </Image>
+                                            <Label Text="SST" Grid.Column="1" Grid.Row="0"  HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+                                            <Label Text="Some other task" Grid.Column="2" Grid.Row="0"  HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+                                            <Label Text="0" x:Name="SST_res_Label" Grid.Row="1" Grid.Column="1"  HorizontalOptions="Center" HorizontalTextAlignment="Center" />
+                                        </Grid>
+                                        <!--<tabView:SfTabView VisibleHeaderCount="2" >
+                                    <tabView:SfTabItem Title="Current Month">
+                                        <tabView:SfTabItem.Content>
+                                            <ListView x:Name="CurrMonthList" />
+                                        </tabView:SfTabItem.Content>
+
+                                    </tabView:SfTabItem>
+                                    <tabView:SfTabItem Title="All Time">
+                                        <tabView:SfTabItem.Content>
+                                            <ListView x:Name="AllTimeList" />
+                                        </tabView:SfTabItem.Content>
+
+                                    </tabView:SfTabItem>
+                                </tabView:SfTabView>-->
+                                    </Frame>
+                                    <Frame BorderColor="Black"
+                                   Grid.Row="1"
+                                   Padding="0">
+                                        <StackLayout>
+                                            <Label x:Name="balance"
+                                    Text="Current month's balance"
+                                   HorizontalTextAlignment="Center"
+                                       HorizontalOptions="CenterAndExpand"
+                                       VerticalOptions="CenterAndExpand"/>
+                                            <Image x:Name="questionmark2" HorizontalOptions="Center" HeightRequest="10">
+                                                <Image.GestureRecognizers>
+                                                    <TapGestureRecognizer Tapped="questionmark2_Tapped" />
+                                                </Image.GestureRecognizers>
+                                            </Image>
+                                        </StackLayout>
+                                    </Frame>
+
+
+
+                                    <Frame  Grid.Row="2"
+                                    BorderColor="Black"
+                                    CornerRadius="50"
+                                    Padding="5">
+                                        <StackLayout >
+                                            <Label Text="Goal progress"
+                                       HorizontalTextAlignment="Center" />
+
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="100" />
+                                                    <ColumnDefinition Width="Auto" />
+                                                </Grid.ColumnDefinitions>
+                                                <Image x:Name="goalpic"
+                                               WidthRequest="100"
+                                               HeightRequest="100"
+                                               Grid.Column="0"/>
+                                                <skia:SKCanvasView x:Name="Skiacanvas" Grid.Column="0"
+                                                           HeightRequest="100"
+                                                           WidthRequest="100"/>
+                                                <FlexLayout Direction="Column"
+                                                    JustifyContent="SpaceAround"
+                                                    Grid.Column="1">
+                                                    <Label x:Name="ProgressLabel" Text="Progress" />
+                                                    <Label x:Name="contribLabel" Text="your contribution" />
+                                                </FlexLayout>
+                                            </Grid>
+
+                                        </StackLayout>
+                                    </Frame>
+
+                                </Grid>
+
+                            </tabView:SfTabItem.Content>
+                        </tabView:SfTabItem>
+
+                    </tabView:SfTabView>
+
+
+                </Grid>
+            </ScrollView>
+        </RefreshView>
+    </ContentPage.Content>
+</ContentPage>

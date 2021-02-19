@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ScienceRecruiterApp.Model.Tasks.AET.InstrBlock_ProgAet">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="In the following you need to concentrate on the following part of the circle:"
+                   HorizontalTextAlignment="Center" VerticalOptions="Center" />
+            <Image x:Name="Cue"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+            <Label Text="Try to find out the correct color-letter pairs!"
+                   VerticalOptions="Center"
+                   HorizontalTextAlignment="Center"/>
+            <Label Text="Try to be as fast and as accurate as possible!"
+                   VerticalOptions="Center"
+                   HorizontalTextAlignment="Center"/>
+            <Label x:Name="progress" HorizontalTextAlignment="End" VerticalOptions="End" />
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+            </StackLayout.GestureRecognizers>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

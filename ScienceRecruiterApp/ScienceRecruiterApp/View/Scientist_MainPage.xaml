@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ScienceRecruiterApp.View.Scientist_MainPage"
+             xmlns:tabView="clr-namespace:Syncfusion.XForms.TabView;assembly=Syncfusion.SfTabView.XForms"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="80" />
+                <RowDefinition Height="80" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Frame BackgroundColor="AliceBlue"
+                       BorderColor="Black"
+                       CornerRadius="50"
+                       Grid.Column="0"
+                       Padding="0">
+                    <Label Text="Pic here" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                </Frame>
+                <Grid  Grid.Column="1" Padding="0" VerticalOptions="Center">
+                    <Label Text="Random Ralph MDMD PhD Habil, Debil " VerticalOptions="Center" HorizontalOptions="StartAndExpand" Grid.ColumnSpan="2"/>
+                    <ImageButton
+                    Grid.Column="1"
+                    WidthRequest="30"
+                    HeightRequest="30"
+                    x:Name="homeButton"
+                    VerticalOptions="Start"
+                    HorizontalOptions="End"
+                    Clicked="homeButton_Clicked"/>
+                    <Label Text="Rectum of Hogwarts School of Witchcraft and Wizardry" Grid.Row="1" Grid.ColumnSpan="2" VerticalOptions="Center" HorizontalOptions="StartAndExpand"/>
+
+                </Grid>
+            </Grid>
+            <Grid Grid.Row="1">
+                
+                <Label Text="Achievments"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+
+                <Label Text="Select Task:" 
+                        HorizontalOptions="CenterAndExpand"
+                       VerticalOptions="End"/>
+            </Grid>
+
+
+            <tabView:SfTabView x:Name="ScientistsTabs"
+                               VisibleHeaderCount="2"
+                               Grid.Row="2"
+                               BackgroundColor="Beige"
+                               SelectedIndex="0">
+                <tabView:SfTabItem Title="SST">
+                    <tabView:SfTabItem.Content>
+                        <CarouselView x:Name="currMonthCarousel"/>
+                    </tabView:SfTabItem.Content>
+                </tabView:SfTabItem>
+
+                <tabView:SfTabItem Title="Some other task">
+                    <tabView:SfTabItem.Content>
+                        
+                            <CarouselView x:Name="currMonthCarousel2"/>
+                        
+                    </tabView:SfTabItem.Content>
+                </tabView:SfTabItem>
+
+            </tabView:SfTabView>
+
+
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>

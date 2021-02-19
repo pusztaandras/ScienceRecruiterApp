@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ScienceRecruiterApp.View.MainMenuPage">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="CenterAndExpand">
+            <Image x:Name="logo"
+               HeightRequest="200"
+               HorizontalOptions="CenterAndExpand"
+               VerticalOptions="Center" />
+            <Button Text="Log in"
+                x:Name="LoginButton"
+                Clicked="LoginButton_Clicked"
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="Center"/>
+
+            <Button Text="Register"
+                x:Name="RegisterButton"
+                Clicked="RegisterButton_Clicked"
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="Center"/>
+            <!--<Image x:Name="trialimage"/>-->
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

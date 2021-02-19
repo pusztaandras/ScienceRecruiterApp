@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:range="clr-namespace:Syncfusion.SfRangeSlider.XForms;assembly=Syncfusion.SfRangeSlider.XForms" xmlns:sfCombobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
+             x:Class="ScienceRecruiterApp.ViewModel.FilterPopUpPage">
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+            <Button x:Name="clearButton" Text="Clear filters" HorizontalOptions="End"
+          Clicked="clearButton_Clicked"/>
+            <Label Text="Filter" HorizontalOptions="CenterAndExpand"
+               FontSize="Title"/>
+            <TableView>
+                <TableRoot>
+                    <TableSection Title="Age">
+                        <ViewCell>
+                            <range:SfRangeSlider x:Name="ageslider"  ShowRange="true"
+                                              ToolTipPlacement="TopLeft"
+                                                 Orientation="Horizontal"/>
+                        </ViewCell>
+                    </TableSection>
+
+                    <TableSection Title="Gender">
+                        <ViewCell>
+                            <sfCombobox:SfComboBox x:Name="genderBox" HorizontalOptions="CenterAndExpand"/>
+                        </ViewCell>
+                    </TableSection>
+                    <TableSection Title="Handedness">
+                        <ViewCell>
+                            <sfCombobox:SfComboBox x:Name="handBox" HorizontalOptions="CenterAndExpand"/>
+                        </ViewCell>
+                    </TableSection>
+
+                </TableRoot>
+
+
+            </TableView>
+
+
+
+
+
+
+            <Button Text="Set filter" HorizontalOptions="Center"
+        Clicked="setfilter_Clicked" />
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>

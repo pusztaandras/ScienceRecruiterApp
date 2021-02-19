@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ScienceRecruiterApp.Model.Tasks.Stroop.TrialPage_Stroop"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <StackLayout x:Name="WholeLayout">
+            <Label x:Name="Textlabel"  Text="Color"
+                FontSize="Header"
+                VerticalTextAlignment="Center"
+                   HorizontalTextAlignment="Center"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+            <StackLayout Orientation="Vertical"
+                         VerticalOptions="End"
+                         x:Name="ButtonLayout">
+                <Label Text="Name the color of the text:"
+                   x:Name="instrLabel"
+                   VerticalOptions="End"
+                   HorizontalOptions="Center"/>
+                <StackLayout Orientation="Horizontal"
+                         VerticalOptions="End"
+                         >
+
+                    <Button x:Name="RedButton"
+                        Text="Red"
+                        BackgroundColor="Red"
+                        TextColor="White"
+                        HorizontalOptions="CenterAndExpand"
+                        Clicked="RedButton_Clicked" />
+                    <Button x:Name="GreenButton"
+                        Text="Green"
+                        BackgroundColor="Green"
+                        TextColor="White"
+                        HorizontalOptions="CenterAndExpand"
+                        Clicked="GreenButton_Clicked"/>
+                    <Button x:Name="BlueButton"
+                        Text="Blue"
+                        BackgroundColor="Blue"
+                        TextColor="White"
+                        HorizontalOptions="CenterAndExpand"
+                        Clicked="BlueButton_Clicked" />
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

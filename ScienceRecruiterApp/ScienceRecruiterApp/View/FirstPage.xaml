@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ScienceRecruiterApp.View.FirstPage"
+             xmlns:progressBar="clr-namespace:Syncfusion.XForms.ProgressBar;assembly=Syncfusion.SfProgressBar.XForms"
+             xmlns:syncfusion="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <StackLayout Grid.Row="0">
+                <Label Text="Place for privacy policy." HorizontalOptions="Center" VerticalOptions="Center"/>
+                <syncfusion:SfCheckBox x:Name="CheckBox_accept" Text="I read and accept the privacy policy" IsChecked="False" HorizontalOptions="Center"/>
+                <Button Text="Next" HorizontalOptions="Center" Clicked="Button_Clicked"/>
+            </StackLayout>
+            <progressBar:SfStepProgressBar HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="1">
+                <progressBar:StepView PrimaryText="Privacy Policy" Status="InProgress" />
+                <progressBar:StepView PrimaryText="Terms and Conditions" />
+                <progressBar:StepView PrimaryText="Informations" />
+            </progressBar:SfStepProgressBar>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
+             mc:Ignorable="d"
+             x:Class="ScienceRecruiterApp.TrialPage_SST"
+             NavigationPage.HasNavigationBar="False"
+             >
+    <ContentPage.Content>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+           
+            
+            <Grid Grid.ColumnSpan="2">
+                <skia:SKCanvasView x:Name="Screen" IsVisible="true" Grid.ColumnSpan="2"/>
+                <StackLayout x:Name="FeedbackLayout" Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center" IsVisible="False" Grid.ColumnSpan="2">
+                    <Label x:Name="Accuracy" FontSize="Large" HorizontalTextAlignment="Center"/>
+                    <Label x:Name="RT" FontSize="Large" HorizontalTextAlignment="Center"/>
+                    <Label x:Name="Additional" FontSize="Large" VerticalOptions="End" HorizontalTextAlignment="Center"/>
+                </StackLayout>
+            </Grid>
+            <StackLayout Grid.Column="0">
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="LeftTapped"/>
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+            <StackLayout Grid.Column="1">
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="RightTapped"/>
+                </StackLayout.GestureRecognizers>
+                <FlexLayout
+                            AlignContent="End"
+                            AlignItems="End"
+                            HorizontalOptions="End">
+                    <FlexLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Exit_Tapped" />
+                    </FlexLayout.GestureRecognizers>
+                    <Label Text="X" HorizontalTextAlignment="End"
+                   VerticalTextAlignment="Start"
+                   HorizontalOptions="End"
+                   VerticalOptions="Start"
+                   
+                   />
+                </FlexLayout>
+            
+            </StackLayout>
+            <ProgressBar Grid.ColumnSpan="2"
+                         x:Name="Progress"
+                         WidthRequest="200"
+                         Progress="0"
+                         VerticalOptions="End"/>
+        </Grid>
+        
+    </ContentPage.Content>
+</ContentPage>

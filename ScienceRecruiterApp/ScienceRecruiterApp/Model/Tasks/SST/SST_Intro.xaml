@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ScienceRecruiterApp.SST_Intro"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="157*"/>
+                <RowDefinition Height="207*"/>
+                <RowDefinition Height="20*"/>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" HorizontalOptions="Center"  HorizontalTextAlignment="Center" Text="Welcome!&#xA;In the following you will perform a stop stignal task.&#xA;Your task is to tap the left or the right side of the screen depending of which half of the circle is green&#xA;Some of the green circles will be followed by a stop signal(red circle).&#xA;In this case, you will have to hold your response&#xA;There will be a cue before each green circle indicating the probability of the stop-signal.&#xA;The Grey cue indicates low probability, and the black cue indicates high probability.&#xA;Try to respond as quick, and as accurate as you can." />
+
+            <Label Text="Cue" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HorizontalOptions="Center" VerticalOptions="Start"/>
+            <Label Text="Go Signal" HorizontalTextAlignment="Center" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" VerticalOptions="Start" />
+            <Label Text="Stop Signal" HorizontalTextAlignment="Center" Grid.Row="1" Grid.Column="4" VerticalOptions="Start" />
+            <Label Text="Low&#xD;&#xA;" HorizontalOptions="Center" VerticalOptions="End" Grid.Row="1" Grid.Column="0" HorizontalTextAlignment="Center"/>
+            <Label Text="High&#xD;&#xA;" VerticalOptions="End" Grid.Row="1" Grid.Column="1" HorizontalTextAlignment="Center" HorizontalOptions="Center"/>
+            <Label Text="&#xA;probability of the Stop signal" HorizontalOptions="CenterAndExpand" VerticalOptions="End" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HorizontalTextAlignment="Center"/>
+
+            <Label Text="Tap the LEFT&#xA;" HorizontalOptions="Center" Grid.Row="1" Grid.Column="2" VerticalOptions="End"/>
+            <Label Text="Tap the RIGHT &#xA;" HorizontalTextAlignment="Center" HorizontalOptions="Center" VerticalOptions="End" Grid.Row="1" Grid.Column="3"/>
+            <Label Text="side of the screen" HorizontalTextAlignment="Center" HorizontalOptions="Center" VerticalOptions="End" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2"/>
+            <Label Text="Hold your response" Grid.Row="1" Grid.Column="4" HorizontalOptions="Center" VerticalOptions="End" HorizontalTextAlignment="Center"/>
+            <Image x:Name="low" HorizontalOptions="Center" Grid.Row="1" Grid.Column="0" WidthRequest="75" HeightRequest="75"/>
+            <Image x:Name="high" HorizontalOptions="Center" Grid.Row="1" Grid.Column="1" WidthRequest="75" HeightRequest="75" />
+            <Image x:Name="goL" HorizontalOptions="Center" HeightRequest="75" WidthRequest="75" Grid.Row="1" Grid.Column="2" />
+            <Image x:Name="goR" HorizontalOptions="Center" HeightRequest="75" WidthRequest="75" Grid.Row="1" Grid.Column="3" />
+            <Image x:Name="stop" HorizontalOptions="Center" Grid.Column="4" HeightRequest="75" WidthRequest="75" Grid.Row="1"/>
+            <Label Text="Tap anywhere to Start" HorizontalTextAlignment="Center" HorizontalOptions="Center" VerticalOptions="End" Grid.Row="2" Grid.ColumnSpan="5" />
+            
+
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer Tapped="Grid_Tapped" />
+            </Grid.GestureRecognizers>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

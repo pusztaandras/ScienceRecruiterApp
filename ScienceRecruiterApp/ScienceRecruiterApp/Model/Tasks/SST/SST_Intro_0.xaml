@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ScienceRecruiterApp.Model.Tasks.SST.SST_Intro_0"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+
+        <StackLayout>
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+            </StackLayout.GestureRecognizers>
+            <Label Text="Welcome to the Experiment!"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" FontSize="Title" Padding="10"/>
+            <Label Text="The task will take approximately 30 minutes" HorizontalOptions="Center" VerticalOptions="Center"  FontSize="Large"/>
+            <Label Text="Feel free to exit from the task anytime*" HorizontalOptions="Center" VerticalOptions="Center" FontSize="Large" />
+            <Label Text="*: You will only get the point for the task if you do the entire task" HorizontalOptions="Center" VerticalOptions="Center"  Padding="40"/>
+            <Label Text="Tap anywhere to go on with the instructions" HorizontalOptions="Center" FontSize="Large"/>
+
+            <Frame BorderColor="Black" VerticalOptions="EndAndExpand" HorizontalOptions="Center">
+                <StackLayout VerticalOptions="End">
+                    <Label Text="You will see a progressbar at the bottom to see how much left from the task" FontSize="Subtitle"/>
+                    <ProgressBar Progress="0.5" />
+                </StackLayout>
+
+            </Frame>
+
+
+
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>
