@@ -33,8 +33,8 @@
                             <logic:NumericValidationBehavior />
                         </Entry.Behaviors>
                     </Entry>
-            <sfCombobox:SfComboBox x:Name="genderBox" HorizontalOptions="CenterAndExpand" Grid.Row="3" Grid.Column="1"/>
-            <sfCombobox:SfComboBox x:Name="handBox" HorizontalOptions="CenterAndExpand" Grid.Row="4" Grid.Column="1"/>
+            <sfCombobox:SfComboBox x:Name="genderBox" HorizontalOptions="CenterAndExpand" Grid.Row="3" Grid.Column="1" WidthRequest="80"/>
+            <sfCombobox:SfComboBox x:Name="handBox" HorizontalOptions="CenterAndExpand" Grid.Row="4" Grid.Column="1" WidthRequest="80"/>
                     
                 
                 <Button Text="Continue"

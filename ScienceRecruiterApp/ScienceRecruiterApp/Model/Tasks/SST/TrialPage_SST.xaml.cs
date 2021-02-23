@@ -786,7 +786,7 @@ namespace ScienceRecruiterApp
         private void Exit_Tapped(object sender, EventArgs e)
         {
             isTerminated = true;
-
+            Navigation.PopAsync();
         }
     }
 }

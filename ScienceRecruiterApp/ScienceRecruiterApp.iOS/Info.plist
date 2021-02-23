@@ -25,7 +25,7 @@
 	<key>CFBundleDisplayName</key>
 	<string>ScienceRecruiterApp</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.SciRec.ScienceRecruiterApp</string>
+	<string>org.SciRec.ScienceRecruiterApp</string>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
 	<key>UILaunchStoryboardName</key>
@@ -34,5 +34,9 @@
 	<string>ScienceRecruiterApp</string>
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcon.appiconset</string>
+	<key>UIStatusBarHidden</key>
+	<true/>
+	<key>UIRequiresFullScreen</key>
+	<true/>
 </dict>
 </plist>
