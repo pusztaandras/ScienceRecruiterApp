@@ -44,13 +44,13 @@ namespace ScienceRecruiterApp.iOS
 
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+            
             Xamarin.Forms.Forms.SetFlags("CarouselView_Experimental");
             Xamarin.Forms.Forms.SetFlags("Expander_Experimental");
             Xamarin.Forms.Forms.SetFlags("CollectionView_Experimental");
             allowRotation = true;
             Rg.Plugins.Popup.Popup.Init();
-            CarouselViewRenderer.Init();
-            global::Xamarin.Forms.Forms.Init();
+            
 
             MessagingCenter.Subscribe<Page>(this, "AllowLandscape", sender =>
             {
@@ -66,11 +66,13 @@ namespace ScienceRecruiterApp.iOS
             
 
             string db = "ScienceRecruiterApp_db.sqlite";
-            string path = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal),"..");
+            string path = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal),"..", "Library");
             string fullpath = Path.Combine(path, db);
 
-            
-            
+            Syncfusion.XForms.iOS.Border.SfBorderRenderer.Init();
+            Syncfusion.XForms.iOS.Buttons.SfCheckBoxRenderer.Init();
+
+            Syncfusion.SfChart.XForms.iOS.Renderers.SfChartRenderer.Init();
 
             Syncfusion.XForms.iOS.TabView.SfTabViewRenderer.Init();
             new SfRangeSliderRenderer();
@@ -80,13 +82,14 @@ namespace ScienceRecruiterApp.iOS
             // Add the below line if you are using SfCircularProgressBar.  
             Syncfusion.XForms.iOS.ProgressBar.SfCircularProgressBarRenderer.Init();
 
-            Syncfusion.XForms.iOS.Buttons.SfCheckBoxRenderer.Init();
 
             Syncfusion.XForms.iOS.ComboBox.SfComboBoxRenderer.Init();
 
             Syncfusion.XForms.iOS.Expander.SfExpanderRenderer.Init();
 
-            
+            CarouselViewRenderer.Init();
+
+            global::Xamarin.Forms.Forms.Init();
 
             LoadApplication(new App(fullpath));
             

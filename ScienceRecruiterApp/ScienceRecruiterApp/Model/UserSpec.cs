@@ -26,6 +26,14 @@ namespace ScienceRecruiterApp.Model
 
         public string hand { get; set; }
 
+        public string isDrug{ get; set; }
+
+        public string Drug { get; set; }
+
+        public string isDisorder { get; set; }
+
+        public string Disorder { get; set; }
+
         public static bool CheckforLocal()
         {
             using (SQLiteConnection conn = new SQLiteConnection(App.DataBaseLocation))

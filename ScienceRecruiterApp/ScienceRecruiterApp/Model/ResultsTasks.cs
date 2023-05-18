@@ -19,5 +19,7 @@ namespace ScienceRecruiterApp.Model
         public int age { get; set; }
 
         public string InvitedBy { get; set; }
+
+        
     }
 }

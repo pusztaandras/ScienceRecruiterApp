@@ -34,10 +34,10 @@ namespace ScienceRecruiterApp
 
         public App(string dbLocation)
         {
-            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Mzg1NzI3QDMxMzgyZTM0MmUzMG9vVGErTGx6N2g3d3gwbG9PTlZ1UXhURlgvT1RtS3FKWkdRdDYvb1dSdk09");
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MTk5MDc2MkAzMjMxMmUzMjJlMzNMQjcvZ0grSXR4SlBDMHE1RWNiS09rVUV0bWtvWjlJY0VmRzlON2d6MDFZPQ==");
             InitializeComponent();
             DataBaseLocation = dbLocation;
-            settings_sst = new SettingsClass_SST();
+            
             settings_stroop = new SettingsClass_Stroop();
 
             MainPage = new NavigationPage(new AnimationPage());

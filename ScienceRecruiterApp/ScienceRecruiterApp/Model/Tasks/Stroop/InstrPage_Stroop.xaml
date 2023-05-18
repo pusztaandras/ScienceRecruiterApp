@@ -1,15 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ScienceRecruiterApp.Model.Tasks.Stroop.InstrPage_Stroop">
+<ContentPage
+    x:Class="ScienceRecruiterApp.Model.Tasks.Stroop.InstrPage_Stroop"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
     <ContentPage.Content>
         <StackLayout>
             <StackLayout.GestureRecognizers>
-                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"  />
+                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
             </StackLayout.GestureRecognizers>
-            <Label Text="Now comes the stroop task.Press to start"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label
+                HorizontalOptions="CenterAndExpand"
+                Text="Tap to the color of the letters (not the meaning of the word).Press to start"
+                VerticalOptions="CenterAndExpand" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

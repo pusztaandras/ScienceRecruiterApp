@@ -6,24 +6,28 @@ namespace ScienceRecruiterApp.Helpers
 {
     public class Constants
     {
-        public const string ResultsSSTRetrieveUrl = "https://scirec.org/wp-json/acme/v2/sstres";
-        public const string ResultsSSTRetrieveUrl_id = "https://scirec.org/wp-json/acme/v2/sstres_id";
+
+        //public const string ResultsSSTRetrieveUrl = "https://scirecapp.azurewebsites.net/api/ResultsSST_";
+        public const string UserUrl = "https://scirecapp.azurewebsites.net/api/UserSpec_";
+        public const string HostUrl = "https://scirecapp.azurewebsites.net";
+        public const string ResultsSSTRetrieveUrl = "https://scirecapp.azurewebsites.net/api/ResultsSST_";
+        public const string ResultsSSTRetrieveUrl_id = "https://scirecapp.azurewebsites.net/api/ResultsSST_";
         public const string ResultsSstroopRetrieveUrl_id = "https://scirec.org/wp-json/acme/v2/stroopres_id";
         public const string ApiKey = "x02p6AeH9ObJJhnAB2yblHbuCcW4ChnV";
         public const string MailRetrieveUrl = "https://scirec.org/wp-json/acme/v2/getuser_id";
         public const string UserPostUrl = "https://scirec.org/wp-json/acme/v2/userpost";
-        public const string SSTPostUrl = "https://scirec.org/wp-json/acme/v2/sstpost";
-        public const string SSTPutUrl = "https://scirec.org/wp-json/acme/v2/sstput";
-        public const string DetailedSSTPostUrl = "https://scirec.org/wp-json/acme/v2/detailedsstpost";
-        public const string DetailedSSTDeleteUrl = "https://scirec.org/wp-json/acme/v2/detailedsst_delete";
+        public const string SSTPostUrl = "https://scirecapp.azurewebsites.net/api/ResultsSST_";
+        public const string SSTPutUrl = "https://scirecapp.azurewebsites.net/api/ResultsSST_";
+        public const string DetailedSSTPostUrl = "https://scirecapp.azurewebsites.net/api/DetailedResultsSST_";
+        public const string DetailedSSTDeleteUrl = "https://scirecapp.azurewebsites.net/api/DetailedResultsSST_";
 
-        public const string StroopPostUrl = "https://scirec.org/wp-json/acme/v2/strooppost";
-        public const string StroopPutUrl = "https://scirec.org/wp-json/acme/v2/stroopput";
+        public const string StroopPostUrl = "https://scirecapp.azurewebsites.net/api/ResultsStroop_";
+        public const string StroopPutUrl = "https://scirecapp.azurewebsites.net/api/ResultsStroop_";
 
-        public const string ProgAetPostUrl= "https://scirec.org/wp-json/acme/v2/progaetpost";
-        public const string ProgAetPutUrl = "https://scirec.org/wp-json/acme/v2/progaetput";
-        public const string ProgAetGetUrl = "https://scirec.org/wp-json/acme/v2/progaetres_id";
-        public const string ProgAetDeleteUrl = "https://scirec.org/wp-json/acme/v2/progaet_delete";
+        public const string ProgAetPostUrl= "https://scirecapp.azurewebsites.net/api/ResultsProgAet_";
+        public const string ProgAetPutUrl = "https://scirecapp.azurewebsites.net/api/ResultsProgAet_";
+        public const string ProgAetGetUrl = "https://scirecapp.azurewebsites.net/api/ResultsProgAet_";
+        public const string ProgAetDeleteUrl = "https://scirecapp.azurewebsites.net/api/ResultsProgAet_";
 
 
 

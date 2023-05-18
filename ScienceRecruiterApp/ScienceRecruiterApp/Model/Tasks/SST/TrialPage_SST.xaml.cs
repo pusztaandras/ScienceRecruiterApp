@@ -52,6 +52,10 @@ namespace ScienceRecruiterApp
         public TrialPage_SST(SettingsClass_SST sett)
         {
             InitializeComponent();
+            //if (sett.TrialsPerf>0)
+            //{
+            //    Progress.LastPerformance = sett.TrialsPerf;
+            //}
             WaitToPress = new EventWaitHandle(false, EventResetMode.AutoReset);
             settings = sett;
             SSDL = settings.StartSSD;
@@ -89,7 +93,7 @@ namespace ScienceRecruiterApp
             await Navigation.PopToRootAsync();
             if (isTerminated)
             {
-                SaveAsync();
+                await SaveAsync();
             }
 
 
@@ -118,7 +122,7 @@ namespace ScienceRecruiterApp
                 res.datePerf = currDate;
                 if (listofTrials.Where(a => a.TrialType == "Go" && a.TrialType2 == "Low").Count() > 0)
                 {
-                    res.meanRTLow = listofTrials.Where(a => a.TrialType == "Go" && a.TrialType2 == "Low").Average(s => s.RT);
+                    res.meanRTLow = (int)listofTrials.Where(a => a.TrialType == "Go" && a.TrialType2 == "Low").Average(s => s.RT);
                     res.mOmmRatioL = listofTrials.Where(a => a.TrialType == "Go" && a.TrialType2 == "Low").Average(s => s.Ommission);
                 }
                 else
@@ -128,7 +132,7 @@ namespace ScienceRecruiterApp
                 }
                 if (listofTrials.Where(a => a.TrialType == "Go" && a.TrialType2 == "High").Count() > 0)
                 {
-                    res.meanRTHigh = listofTrials.Where(a => a.TrialType == "Go" && a.TrialType2 == "High").Average(s => s.RT);
+                    res.meanRTHigh = (int)listofTrials.Where(a => a.TrialType == "Go" && a.TrialType2 == "High").Average(s => s.RT);
                     res.mOmmRatioH = listofTrials.Where(a => a.TrialType == "Go" && a.TrialType2 == "High").Average(s => s.Ommission);
                 }
                 else
@@ -142,7 +146,7 @@ namespace ScienceRecruiterApp
 
                 if (listofTrials.Where(a => a.TrialType == "Stop" && a.TrialType2 == "Low").Count() > 0)
                 {
-                    res.meanSSDLow = listofTrials.Where(a => a.TrialType == "Stop" && a.TrialType2 == "Low").Average(s => s.SSDL);
+                    res.meanSSDLow = (int)listofTrials.Where(a => a.TrialType == "Stop" && a.TrialType2 == "Low").Average(s => s.SSDL);
                     res.mCommRatioL = listofTrials.Where(a => a.TrialType == "Stop" && a.TrialType2 == "Low").Average(s => s.Commission);
                 }
                 else
@@ -152,7 +156,7 @@ namespace ScienceRecruiterApp
                 }
                 if (listofTrials.Where(a => a.TrialType == "Stop" && a.TrialType2 == "High").Count() > 0)
                 {
-                    res.meanSSDHigh = listofTrials.Where(a => a.TrialType == "Stop" && a.TrialType2 == "High").Average(s => s.SSDH);
+                    res.meanSSDHigh = (int)listofTrials.Where(a => a.TrialType == "Stop" && a.TrialType2 == "High").Average(s => s.SSDH);
                     res.mCommRatioH = listofTrials.Where(a => a.TrialType == "Stop" && a.TrialType2 == "High").Average(s => s.Commission);
                 }
                 else
@@ -204,6 +208,7 @@ namespace ScienceRecruiterApp
                 Logic.ApiLogic apiLogic = new Logic.ApiLogic();
                 bool isNew = true;
                 bool isUpload = true;
+                
                 if (res.mOmmRatioH < 0.5 || res.mOmmRatioL < 0.5 || res.mCommRatioH < 0.8 || res.mCommRatioL < 0.8) //check for ommission ratio
                 {
 
@@ -216,7 +221,7 @@ namespace ScienceRecruiterApp
                         if (listofRes.Last().datePerf < currDate)
                         {
                             //save
-                            apiLogic.PostResults<ResultsSST>(res, Helpers.Constants.SSTPostUrl);
+                            await apiLogic.PostResults<ResultsSST>(res, Helpers.Constants.SSTPostUrl);
                             isNew = true;
                             isUpload = true;
                         }
@@ -226,7 +231,7 @@ namespace ScienceRecruiterApp
                             {
                                 //delete old, save new
                                 //add here
-                                apiLogic.PostResults<ResultsSST>(res, Helpers.Constants.SSTPutUrl);
+                                await apiLogic.PutResults<ResultsSST>(res, Helpers.Constants.SSTPutUrl, (int)listofRes.Last().id);
                                 isNew = false;
                                 isUpload = true;
                             }
@@ -239,7 +244,7 @@ namespace ScienceRecruiterApp
                     }
                     else
                     {
-                        apiLogic.PostResults<ResultsSST>(res, Helpers.Constants.SSTPostUrl);
+                        await apiLogic.PostResults<ResultsSST>(res, Helpers.Constants.SSTPostUrl);
                         isNew = true;
                         isUpload = true;
                     }
@@ -247,7 +252,7 @@ namespace ScienceRecruiterApp
 
                 //Get the id of the saved ResultsSST and Save the detailed results
                 listofRes = await apiLogic.GetResults<ResultsSST>(App.user.id, Helpers.Constants.ResultsSSTRetrieveUrl_id);
-                int id = listofRes.Where(a => a.UserSpecKey == App.user.id).ToList().LastOrDefault().id;
+                int? id = listofRes.Where(a => a.UserSpecKey == App.user.id).ToList().LastOrDefault().id;
                 if (!isNew)
                 {
                     apiLogic.DeleteResults(id.ToString(), Helpers.Constants.DetailedSSTDeleteUrl);
@@ -269,7 +274,7 @@ namespace ScienceRecruiterApp
                         detailedResultsSST.TrialType2 = savedTrials.TrialType2;
                         detailedResultsSST.TrialType3 = savedTrials.TrialType3;
 
-                        apiLogic.PostResults<DetailedResultsSST>(detailedResultsSST, Helpers.Constants.DetailedSSTPostUrl);
+                        await apiLogic.PostResults<DetailedResultsSST>(detailedResultsSST, Helpers.Constants.DetailedSSTPostUrl);
                     }
                 }
 
@@ -310,7 +315,7 @@ namespace ScienceRecruiterApp
             };
             await Task.Run(() => waitHandle.WaitOne());
             await Navigation.PopToRootAsync();
-            SaveAsync();
+            await SaveAsync();
         }
 
         private async Task DoBlock(List<TrialList_SST> trialList)

@@ -7,15 +7,20 @@
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="3*" />
+                <RowDefinition Height="4*" />
+                <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-            <StackLayout Grid.Row="0">
-                <Label Text="Place for Terms and conditions." HorizontalOptions="Center" VerticalOptions="Center"/>
-                <syncfusion:SfCheckBox x:Name="CheckBox_accept" Text="I read and accept the terms and conditions" IsChecked="False" HorizontalOptions="Center"/>
-                <Button Text="Next" HorizontalOptions="Center" Clicked="Button_Clicked"/>
+            <StackLayout Grid.Row="0" VerticalOptions="CenterAndExpand">
+                <ScrollView>
+                  <Label Text="{Binding TermsText}" HorizontalOptions="Center" VerticalOptions="Center"/>
+                </ScrollView>
             </StackLayout>
-            <progressBar:SfStepProgressBar HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="1">
+            <StackLayout Grid.Row="1" VerticalOptions="EndAndExpand">
+                <syncfusion:SfCheckBox x:Name="CheckBox_accept" Text="I read and accept the terms and conditions" IsChecked="False" HorizontalOptions="Center" VerticalOptions="Center"/>
+                <Button Text="Next" HorizontalOptions="Center" Clicked="Button_Clicked" VerticalOptions="Center"/>
+            </StackLayout>
+            <progressBar:SfStepProgressBar HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="2">
                 <progressBar:StepView PrimaryText="Privacy Policy" Status="Completed" />
                 <progressBar:StepView PrimaryText="Terms and Conditions" Status="InProgress" />
                 <progressBar:StepView PrimaryText="Informations" />

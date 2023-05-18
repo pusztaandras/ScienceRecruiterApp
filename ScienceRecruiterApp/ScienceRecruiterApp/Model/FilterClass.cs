@@ -9,7 +9,7 @@ namespace ScienceRecruiterApp.Model
     public class FilterClass
     {
         List<ResultsSST> list;
-        public List<int> idx { get; set; }
+        public List<int?> idx { get; set; }
         public List<FilterProperties> Properties { get; set; }
 
         public FilterClass()
@@ -28,7 +28,7 @@ namespace ScienceRecruiterApp.Model
 
         public FilterClass(List<FilterProperties> filterProperties)
         {
-            idx = new List<int>();
+            idx = new List<int?>();
             
             List<FilterProperties> tmpprop = filterProperties;
             GetRes();

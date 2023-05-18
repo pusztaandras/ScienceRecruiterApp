@@ -19,10 +19,11 @@ namespace ScienceRecruiterApp.View
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class TasksTabPage : ContentPage
     {
-
+        
         public List<TasksDescription> Tasks;
         public TasksTabPage()
         {
+            InitializeComponent();
             Tasks = new List<TasksDescription>();
             Tasks.Add(new TasksDescription(
                 "Stop Signal Task",
@@ -56,12 +57,12 @@ namespace ScienceRecruiterApp.View
 
             ));
             Tasks.Add(new TasksDescription(
-                "Acquired equivalence task",
+                "Progressive acquired equivalence task",
                 "ProgAet",
                 ImageSource.FromResource("ScienceRecruiterApp.Pictures.Stroop_icon.jpg"),
                 0,
-                "Complex task to measure spatial attention and worwing memory ",
-                "Some reeeeeeeeallly very long description",
+                "Complex task to measure spatial attention and working memory ",
+                "Working memory and visual attention are two subdomains of executive functions. Earlie studies have shown that these two domains interact with each other on the behavioral level.Namely, the reaction time difference between low and high visual attention conditions increased in high working memory load conditions, but this difference was minimal in the low working memory load condition.This test is optimal to dissociate the working - memory load~and attention - correlations.",
                 new Command(
                     execute: async () =>
                     {
@@ -71,9 +72,9 @@ namespace ScienceRecruiterApp.View
 
 
             ));
-
-            InitializeComponent();
             carouselView.ItemsSource = Tasks;
+            carouselView.BindingContext = Tasks;
+            
             ReloadPageAsync();
             ICommand refreshCommand = new Command(async () =>
             {
@@ -95,8 +96,8 @@ namespace ScienceRecruiterApp.View
             Tasks.Where(a => a.Title == "Stop Signal Task").LastOrDefault().ProgressInt = mySST.CurrMonthTrial;
             Tasks.Where(a => a.Title == "Stop Signal Task").LastOrDefault().ProgressStr = String.Concat(mySST.CurrMonthTrial.ToString(), "/",App.settings_sst.TotalTrials.ToString(), " trials this month") ;
 
-            Tasks.Where(a => a.Title == "Acquired equivalence task").LastOrDefault().ProgressInt = myProgAet.CurrMonthTrial;
-            Tasks.Where(a => a.Title == "Acquired equivalence task").LastOrDefault().ProgressStr = String.Concat(myProgAet.CurrMonthTrial.ToString(), "/ 4 blocks this month");
+            Tasks.Where(a => a.Title == "Progressive acquired equivalence task").LastOrDefault().ProgressInt = myProgAet.CurrMonthTrial;
+            Tasks.Where(a => a.Title == "Progressive acquired equivalence task").LastOrDefault().ProgressStr = String.Concat(myProgAet.CurrMonthTrial.ToString(), "/ 4 blocks this month");
 
             Tasks.Where(a => a.Title == "Stroop Task").LastOrDefault().ProgressInt = myStroop.CurrMonthTrial;
             Tasks.Where(a => a.Title == "Stroop Task").LastOrDefault().ProgressStr = String.Concat(myStroop.CurrMonthTrial.ToString(), "/", App.settings_sst.TotalTrials.ToString(), " trials this month");

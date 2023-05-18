@@ -1,4 +1,5 @@
-﻿using SQLite;
+﻿using Newtonsoft.Json;
+using SQLite;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,6 +9,7 @@ namespace ScienceRecruiterApp.Model.Tasks.Stroop
     public class ResultsStroop : ResultsTasks
     {
         [PrimaryKey]
+        [JsonIgnore]
         public int id { get; set; }
 
         public double mRTCongr { get; set; }

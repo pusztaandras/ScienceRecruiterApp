@@ -302,7 +302,7 @@ namespace ScienceRecruiterApp.Model.Tasks.AET
                     //save
                     foreach (ResultsProgAet a in TaskResults)
                     {
-                        apiLogic.PostResults<ResultsProgAet>(a, Helpers.Constants.ProgAetPostUrl);
+                        await apiLogic.PostResults<ResultsProgAet>(a, Helpers.Constants.ProgAetPostUrl);
                     }
 
                 }
@@ -318,7 +318,7 @@ namespace ScienceRecruiterApp.Model.Tasks.AET
                                 List<ResultsProgAet> ToPut = TaskResults.Where(x => x.CueNum == a.CueNum && x.Field == a.Field && x.WMLoad == a.WMLoad).ToList();
                                 foreach (ResultsProgAet put in ToPut)
                                 {
-                                    apiLogic.PostResults<ResultsProgAet>(put, Helpers.Constants.ProgAetPutUrl);
+                                    await apiLogic.PutResults<ResultsProgAet>(put, Helpers.Constants.ProgAetPutUrl, a.id);
                                 }
 
 
@@ -329,10 +329,9 @@ namespace ScienceRecruiterApp.Model.Tasks.AET
                                 List<ResultsProgAet> ToPost = TaskResults.Where(x => x.CueNum != a.CueNum && x.Field != a.Field && x.WMLoad != a.WMLoad).ToList();
                                 foreach (ResultsProgAet post in ToPost)
                                 {
-                                    apiLogic.PostResults<ResultsProgAet>(post, Helpers.Constants.ProgAetPostUrl);
+                                    await apiLogic.PostResults<ResultsProgAet>(post, Helpers.Constants.ProgAetPostUrl);
                                 }
-                                //delete old
-                                apiLogic.PostResults<ResultsProgAet>(a, Helpers.Constants.ProgAetDeleteUrl);
+                                
                             }
 
 
@@ -344,7 +343,7 @@ namespace ScienceRecruiterApp.Model.Tasks.AET
             {
                 foreach (ResultsProgAet post in TaskResults)
                 {
-                    apiLogic.PostResults<ResultsProgAet>(post, Helpers.Constants.ProgAetPostUrl);
+                    await apiLogic.PostResults<ResultsProgAet>(post, Helpers.Constants.ProgAetPostUrl);
                 }
             }
         }

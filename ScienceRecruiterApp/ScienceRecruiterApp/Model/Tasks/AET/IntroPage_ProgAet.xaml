@@ -1,14 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ScienceRecruiterApp.Model.Tasks.AET.IntroPage_ProgAet">
+<ContentPage
+    x:Class="ScienceRecruiterApp.Model.Tasks.AET.IntroPage_ProgAet"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Proressive Acquired Equivalence Task!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label
+                HorizontalOptions="CenterAndExpand"
+                HorizontalTextAlignment="Center"
+                Text="In the following you will have to memorize color-shape pairings between blank shapes and colored segmented circles"
+                VerticalOptions="CenterAndExpand" />
+            <Label
+                HorizontalOptions="CenterAndExpand"
+                HorizontalTextAlignment="Center"
+                Text="You only have to focus on one segment of the circle. Before each block, the important segment (the one that you will have to focus on will be labelled at the beginning of each block with parallel stripes)"
+                VerticalOptions="CenterAndExpand" />
+            <Label
+                HorizontalOptions="CenterAndExpand"
+                HorizontalTextAlignment="Center"
+                Text="For each repetition, you will see a circle and two shapes below it. your job is to decide which of the two shapes belongs to a color in a (predicted) part of the circle. You need to guess at first, but after each answer you will get feedback on the correctness of your answers. Based on this feedback, try to guess the correct shape-color pairs."
+                VerticalOptions="CenterAndExpand" />
             <StackLayout.GestureRecognizers>
-                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
             </StackLayout.GestureRecognizers>
         </StackLayout>
     </ContentPage.Content>

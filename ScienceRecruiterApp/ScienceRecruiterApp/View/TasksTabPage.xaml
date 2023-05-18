@@ -1,89 +1,123 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:progressBar="clr-namespace:Syncfusion.XForms.ProgressBar;assembly=Syncfusion.SfProgressBar.XForms"
-             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
-             xmlns:expander="clr-namespace:Syncfusion.XForms.Expander;assembly=Syncfusion.Expander.XForms"
-             x:Class="ScienceRecruiterApp.View.TasksTabPage"
-             Title="Tasks">
+<ContentPage
+    x:Class="ScienceRecruiterApp.View.TasksTabPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+    xmlns:expander="clr-namespace:Syncfusion.XForms.Expander;assembly=Syncfusion.Expander.XForms"
+    xmlns:progressBar="clr-namespace:Syncfusion.XForms.ProgressBar;assembly=Syncfusion.SfProgressBar.XForms"
+    Title="Tasks">
     <ContentPage.Content>
 
-        
 
-        
-            <StackLayout>
-                
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="1.2*"/>
-                        <RowDefinition Height="3*"/>
-                        <RowDefinition Height="0.1*"/>
-                    </Grid.RowDefinitions>
-                    <StackLayout Grid.Row="0">
-                        <Label Text="My tasks" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Center" FontSize="Large" />
-                        <CarouselView x:Name="carouselView" PeekAreaInsets="20" Loop="False" CurrentItemChanged="ProgressBar_Changed">
-                            <CarouselView.ItemTemplate>
-                                <DataTemplate>
 
-                                    <StackLayout>
-                                        <StackLayout.GestureRecognizers>
-                                            <TapGestureRecognizer Tapped="ProgressBar_Tapped"/>
-                                        </StackLayout.GestureRecognizers>
 
-                                        <progressBar:SfCircularProgressBar x:Name="CircularProgressBar"
-                                                               Progress="{Binding ProgressInt}"
-                                                               HorizontalOptions="CenterAndExpand"
-                                                               VerticalOptions="CenterAndExpand"
-                                                               Maximum="{Binding MaximumTrials}"
-                                                               EasingEffect="SinIn">
-                                            <progressBar:SfCircularProgressBar.Content>
-                                                <Grid>
-                                                    <StackLayout>
-                                                        <Label Text="{Binding ShortTitle}" HorizontalOptions="Center" VerticalOptions="Center" HorizontalTextAlignment="Center" LineBreakMode="WordWrap"/>
-                                                    </StackLayout>
-                                                </Grid>
+        <StackLayout>
 
-                                            </progressBar:SfCircularProgressBar.Content>
-                                        </progressBar:SfCircularProgressBar>
-                                    </StackLayout>
-                                </DataTemplate>
-                            </CarouselView.ItemTemplate>
-                        </CarouselView>
-                        <!--<IndicatorView x:Name="indicatorView"
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1.2*" />
+                    <RowDefinition Height="4*" />
+                    <RowDefinition Height="0.1*" />
+                </Grid.RowDefinitions>
+                <StackLayout Grid.Row="0">
+                    <Label
+                        FontSize="Large"
+                        HorizontalOptions="Center"
+                        HorizontalTextAlignment="Center"
+                        Text="My tasks"
+                        VerticalOptions="CenterAndExpand" />
+                    <CarouselView
+                        x:Name="carouselView"
+                        CurrentItemChanged="ProgressBar_Changed"
+                        Loop="False"
+                        PeekAreaInsets="20">
+                        <CarouselView.ItemTemplate>
+                            <DataTemplate>
+
+                                <StackLayout>
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="ProgressBar_Tapped" />
+                                    </StackLayout.GestureRecognizers>
+
+                                    <progressBar:SfCircularProgressBar
+                                        x:Name="CircularProgressBar"
+                                        EasingEffect="SinIn"
+                                        HorizontalOptions="CenterAndExpand"
+                                        Maximum="{Binding MaximumTrials}"
+                                        Progress="{Binding ProgressInt}"
+                                        VerticalOptions="CenterAndExpand">
+                                        <progressBar:SfCircularProgressBar.Content>
+
+                                            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                                <Label
+                                                    HorizontalOptions="Center"
+                                                    HorizontalTextAlignment="Center"
+                                                    LineBreakMode="WordWrap"
+                                                    Text="{Binding ShortTitle}"
+                                                    VerticalOptions="Center" />
+                                            </StackLayout>
+
+
+                                        </progressBar:SfCircularProgressBar.Content>
+                                    </progressBar:SfCircularProgressBar>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CarouselView.ItemTemplate>
+                    </CarouselView>
+                    <!--<IndicatorView x:Name="indicatorView"
                    IndicatorColor="LightGray"
                    SelectedIndicatorColor="DarkGray"
                    HorizontalOptions="Center" />-->
-                    </StackLayout>
-                    <StackLayout Grid.Row="1">
-                        <expander:SfExpander x:Name="InfoExpander"  HeaderIconPosition="None" HeaderBackgroundColor="Beige">
-                            <expander:SfExpander.Header>
-                                <Label Text="" />
-                            </expander:SfExpander.Header>
-                            <expander:SfExpander.Content>
+                </StackLayout>
+                <StackLayout Grid.Row="1">
+                    <expander:SfExpander
+                        x:Name="InfoExpander"
+                        HeaderBackgroundColor="Beige"
+                        HeaderIconPosition="None">
+                        <expander:SfExpander.Header>
+                            <Label Text="" />
+                        </expander:SfExpander.Header>
+                        <expander:SfExpander.Content>
                             <RefreshView x:Name="refreshView">
                                 <ScrollView>
                                     <Grid BackgroundColor="Beige">
                                         <Grid.RowDefinitions>
-                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="*" />
                                             <RowDefinition Height="*" />
 
                                         </Grid.RowDefinitions>
 
-                                        <StackLayout Grid.Row="0" >
-                                            <Label Text="{Binding Title}" Grid.Column="1" Grid.Row="0"
-                                             HorizontalTextAlignment="Center"
-                                             VerticalTextAlignment="Center"
-                                             FontSize="Title"/>
-                                            <Label Text="{Binding InvitedBy}" HorizontalOptions="End"/>
-                                            <Label Text="{Binding ShortDescription}" FontAttributes="Italic" HorizontalTextAlignment="Center"/>
+                                        <StackLayout Grid.Row="0">
+                                            <Label
+                                                Grid.Row="0"
+                                                Grid.Column="1"
+                                                FontSize="Title"
+                                                HorizontalTextAlignment="Center"
+                                                Text="{Binding Title}"
+                                                VerticalTextAlignment="Center" />
+                                            <Label HorizontalOptions="End" Text="{Binding InvitedBy}" />
+                                            <Label
+                                                FontAttributes="Italic"
+                                                HorizontalTextAlignment="Center"
+                                                Text="{Binding ShortDescription}" />
 
                                             <Grid>
                                                 <StackLayout>
-                                                    <Label Text="{Binding ProgressStr}" HorizontalOptions="Center" VerticalOptions="Center" HorizontalTextAlignment="Center" LineBreakMode="WordWrap"/>
+                                                    <Label
+                                                        HorizontalOptions="Center"
+                                                        HorizontalTextAlignment="Center"
+                                                        LineBreakMode="WordWrap"
+                                                        Text="{Binding ProgressStr}"
+                                                        VerticalOptions="Center" />
                                                 </StackLayout>
                                             </Grid>
 
-                                            <Button Text="Start Task" Command="{Binding LoadPage}" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                            <Button
+                                                Command="{Binding LoadPage}"
+                                                HorizontalOptions="Center"
+                                                Text="Start Task"
+                                                VerticalOptions="Center" />
                                         </StackLayout>
                                         <StackLayout Grid.Row="1">
                                             <Grid>
@@ -92,24 +126,28 @@
                                                     <RowDefinition Height="*" />
                                                 </Grid.RowDefinitions>
 
-                                                <Label Text="{Binding LongDescription}" FontAttributes="Italic" HorizontalTextAlignment="Center" HorizontalOptions="Center" LineBreakMode="WordWrap" Grid.Row="0"/>
+                                                <Label
+                                                    Grid.Row="0"
+                                                    FontAttributes="Italic"
+                                                    HorizontalOptions="Center"
+                                                    HorizontalTextAlignment="Center"
+                                                    LineBreakMode="WordWrap"
+                                                    Text="{Binding LongDescription}" />
 
                                                 <buttons:SfButton
-                                                     Grid.Row="1"
-                                                     VerticalOptions="Center"
-                                                     HorizontalOptions="End"
-                                                     CornerRadius="100"
-                                                     HasShadow="True"
-                                                     BorderWidth="1"
-                                                     BorderColor="Gray"
-                                                     BackgroundColor="#538EEC"
-                                                     ImageSource="Basket.png"
-                                                     ShowIcon="True"
-                                                     ImageAlignment="End"
-                                                     Text="Use invitation code"
-                                                     Command="{Binding GetSciID}">
-
-                                                </buttons:SfButton>
+                                                    Grid.Row="1"
+                                                    BackgroundColor="#538EEC"
+                                                    BorderColor="Gray"
+                                                    BorderWidth="1"
+                                                    Command="{Binding GetSciID}"
+                                                    CornerRadius="100"
+                                                    HasShadow="True"
+                                                    HorizontalOptions="End"
+                                                    ImageAlignment="End"
+                                                    ImageSource="Basket.png"
+                                                    ShowIcon="True"
+                                                    Text="Use invitation code"
+                                                    VerticalOptions="Center" />
                                             </Grid>
                                         </StackLayout>
 
@@ -118,16 +156,16 @@
                                 </ScrollView>
                             </RefreshView>
                         </expander:SfExpander.Content>
-                        </expander:SfExpander>
-                    </StackLayout>
+                    </expander:SfExpander>
+                </StackLayout>
 
 
-                </Grid>
+            </Grid>
 
-            
-            </StackLayout>
-            
-        
-        
+
+        </StackLayout>
+
+
+
     </ContentPage.Content>
 </ContentPage>

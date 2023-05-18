@@ -6,6 +6,6 @@ namespace ScienceRecruiterApp.Model.Tasks
 {
     public class DetailedResultsTask
     {
-        public int metaid { get; set; }
+        public int? metaid { get; set; }
     }
 }

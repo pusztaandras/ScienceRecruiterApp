@@ -1,5 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using System.Threading.Tasks;
+using ScienceRecruiterApp.Model;
 using Xamarin.Forms;
 
 namespace ScienceRecruiterApp
@@ -48,9 +52,12 @@ namespace ScienceRecruiterApp
 
         public int TotalTrials { get; set; }
 
+        public int TrialsPerf { get; set; }
+
 
         public SettingsClass_SST()
         {
+           
             Go = ImageSource.FromResource("ScienceRecruiterApp.Model.Tasks.SST.Pictures.Go.bmp");
             GoR = ImageSource.FromResource("ScienceRecruiterApp.Model.Tasks.SST.Pictures.GoR.bmp");
             GoL = ImageSource.FromResource("ScienceRecruiterApp.Model.Tasks.SST.Pictures.GoL.bmp");
@@ -95,15 +102,40 @@ namespace ScienceRecruiterApp
             
             maxWaitingTime = 1000;
             StartSSD = 250;
-            SSDCorrect = 20;
-            SSDWrong = 30;
+            SSDCorrect = 50;
+            SSDWrong = 50;
 
             FeedbackTime = 10000;
             
             minITITime = 500;
             maxITITime = 800;
+            GetTrialsPerf();
+            
+        }
 
+        private async void GetTrialsPerf()
+        {
+            Logic.ApiLogic apiLogic = new Logic.ApiLogic();
+            DateTime currDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+            List<ResultsSST> listofRes = new List<ResultsSST>();
+            listofRes = await apiLogic.GetResults<ResultsSST>(App.user.id, Helpers.Constants.ResultsSSTRetrieveUrl_id);
+            listofRes = listofRes.Where(a => a.UserSpecKey == App.user.id).ToList();
+            if (listofRes.Count > 0)
+            {
+                if (listofRes.Last().datePerf < currDate)
+                {
 
+                    TrialsPerf = 0;
+                }
+                else
+                {
+                    TrialsPerf = listofRes.Last().TotalTrials;
+                }
+            }
+            else
+            {
+                TrialsPerf = 0;
+            }
         }
 
         public ImageSource Low;

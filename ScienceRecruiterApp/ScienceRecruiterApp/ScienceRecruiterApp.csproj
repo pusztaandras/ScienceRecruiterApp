@@ -3,10 +3,11 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+    <ReleaseVersion>1.4</ReleaseVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DebugType>portable</DebugType>
+    <DebugType>full</DebugType>
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
 
@@ -52,29 +53,36 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pictures\SciRecLogo.jpg" />
     <EmbeddedResource Include="Pictures\SciRecLogo_trpbckgr.png" />
+    <EmbeddedResource Include="Pictures\pp.txt" />
+    <EmbeddedResource Include="Pictures\terms.txt" />
+    <EmbeddedResource Include="Pictures\avatar_placeholder.png" />
+    <EmbeddedResource Include="Pictures\settings_icon.png" />
+    <EmbeddedResource Include="Pictures\points.png" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Azure.Mobile.Client" Version="4.2.0" />
     <PackageReference Include="Microsoft.Azure.Mobile.Client.SQLiteStore" Version="4.2.0" />
     <PackageReference Include="Microsoft.Net.Http" Version="2.2.29" />
-    <PackageReference Include="MySql.Data" Version="8.0.22" />
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
-    <PackageReference Include="Rg.Plugins.Popup" Version="2.0.0.10" />
-    <PackageReference Include="SkiaSharp" Version="2.80.2" />
-    <PackageReference Include="SkiaSharp.Views" Version="2.80.2" />
-    <PackageReference Include="SkiaSharp.Views.Forms" Version="2.80.2" />
-    <PackageReference Include="sqlite-net-pcl" Version="1.7.335" />
-    <PackageReference Include="Syncfusion.Xamarin.Buttons" Version="18.4.0.43" />
-    <PackageReference Include="Syncfusion.Xamarin.Expander" Version="18.4.0.43" />
-    <PackageReference Include="Syncfusion.Xamarin.SfComboBox" Version="18.4.0.43" />
-    <PackageReference Include="Syncfusion.Xamarin.SfProgressBar" Version="18.4.0.43" />
-    <PackageReference Include="Syncfusion.Xamarin.SfRangeSlider" Version="18.4.0.43" />
-    <PackageReference Include="Syncfusion.Xamarin.SfTabView" Version="18.4.0.43" />
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
+    <PackageReference Include="MySql.Data" Version="8.0.33" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Rg.Plugins.Popup" Version="2.1.0" />
+    <PackageReference Include="SkiaSharp" Version="2.88.3" />
+    <PackageReference Include="SkiaSharp.Views" Version="2.88.3" />
+    <PackageReference Include="SkiaSharp.Views.Forms" Version="2.88.3" />
+    <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
+    <PackageReference Include="Syncfusion.Xamarin.Buttons" Version="21.2.5" />
+    <PackageReference Include="Syncfusion.Xamarin.Expander" Version="21.2.5" />
+    <PackageReference Include="Syncfusion.Xamarin.SfComboBox" Version="21.2.5" />
+    <PackageReference Include="Syncfusion.Xamarin.SfProgressBar" Version="21.2.5" />
+    <PackageReference Include="Syncfusion.Xamarin.SfRangeSlider" Version="21.2.5" />
+    <PackageReference Include="Syncfusion.Xamarin.SfTabView" Version="21.2.5" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2578" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.5" />
     <PackageReference Include="CarouselView.FormsPlugin" Version="6.0.0" />
-    <PackageReference Include="CarouselView.FormsPlugin.Fix" Version="5.2.1" />
+    <PackageReference Include="Plugin.Permissions" Version="6.0.1" />
+    <PackageReference Include="Syncfusion.Xamarin.SfChart" Version="21.2.5" />
+    <PackageReference Include="ZstdNet" Version="1.4.5" />
   </ItemGroup>
 
   <ItemGroup>
@@ -153,5 +161,14 @@
     <EmbeddedResource Update="View\TasksTabPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Plugin.Permissions" />
+    <None Remove="Pictures\pp.txt" />
+    <None Remove="Pictures\terms.txt" />
+    <None Remove="Pictures\avatar_placeholder.png" />
+    <None Remove="Pictures\settings_icon.png" />
+    <None Remove="Pictures\points.png" />
+    <None Remove="Syncfusion.Xamarin.SfChart" />
   </ItemGroup>
 </Project>

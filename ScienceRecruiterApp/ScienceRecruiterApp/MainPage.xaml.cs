@@ -16,8 +16,9 @@ namespace ScienceRecruiterApp
     {
         public MainPage()
         {
+            App.settings_sst = new SettingsClass_SST();
             InitializeComponent();
-            //logoImage.Source = ImageSource.FromResource("ScienceRecruiterApp.Pictures.SciRecLogo_trpbckgr.png");
+            logoImage.Source = ImageSource.FromResource("ScienceRecruiterApp.Pictures.SciRecLogo_trpbckgr.png");
             tabbedpage_main.IconImageSource= ImageSource.FromResource("ScienceRecruiterApp.Pictures.SciRecLogo_trpbckgr.png");
         }
 

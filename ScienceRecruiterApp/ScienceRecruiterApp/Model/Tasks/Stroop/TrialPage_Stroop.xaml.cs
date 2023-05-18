@@ -80,26 +80,26 @@ namespace ScienceRecruiterApp.Model.Tasks.Stroop
                 {
                     Logic.ApiLogic apiLogic = new Logic.ApiLogic();
                     listofRes = await apiLogic.GetResults<ResultsStroop>(App.user.id, Constants.ResultsSstroopRetrieveUrl_id);
-
+                    listofRes = listofRes.Where(a => a.UserSpecKey == App.user.id).ToList();
                     if (listofRes.Count > 0)
                     {
                         if (listofRes.Last().datePerf < currDate)
                         {
                             //save
-                            apiLogic.PostResults<ResultsStroop>(res, Helpers.Constants.StroopPostUrl);
+                            await apiLogic.PostResults<ResultsStroop>(res, Helpers.Constants.StroopPostUrl);
                         }
                         if (listofRes.Last().datePerf == currDate)
                         {
                             if (listofRes.Last().TotalTrials < SavedTrials.TrialNum)
                             {
                                 //delete old, save new
-                                apiLogic.PostResults<ResultsStroop>(res, Helpers.Constants.StroopPutUrl);
+                                await apiLogic.PutResults<ResultsStroop>(res, Helpers.Constants.StroopPutUrl, listofRes.Last().id);
                             }
                         }
                     }
                     else
                     {
-                        apiLogic.PostResults<ResultsStroop>(res, Helpers.Constants.StroopPostUrl);
+                        await apiLogic.PostResults<ResultsStroop>(res, Helpers.Constants.StroopPostUrl);
                     }
                 }
             }

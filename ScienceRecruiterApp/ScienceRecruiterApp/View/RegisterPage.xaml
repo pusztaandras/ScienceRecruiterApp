@@ -7,50 +7,77 @@
     <ContentPage.Content>
         <Grid>
 
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="0.25*"/>
-                    <RowDefinition Height="0.1*"/>
-                    <RowDefinition Height="0.1*"/>
-                     <RowDefinition Height="0.1*"/>
-                    <RowDefinition Height="0.1*"/>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.25*"/> 
+                <RowDefinition/>
                 <RowDefinition Height="0.1*"/>
                 <RowDefinition Height="0.25*"/>
-                </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
+            </Grid.RowDefinitions>
 
-            <Label Text="Some info about you" Grid.Row="0" Grid.ColumnSpan="2" HorizontalOptions="Center" HorizontalTextAlignment="Center" FontSize="Title" />
-            <Label Text="Name:" Grid.Row="1" Grid.Column="0" HorizontalTextAlignment="End" FontSize="Large" VerticalOptions="Center"/>
-                <Label Text="Age:" Grid.Row="2" Grid.Column="0"  HorizontalTextAlignment="End" FontSize="Large"  VerticalOptions="Center"/>
-                <Label Text="Gender:" Grid.Row="3" Grid.Column="0"  HorizontalTextAlignment="End" FontSize="Large" VerticalOptions="Center" />
-                <Label Text="Handedness:" Grid.Row="4" Grid.Column="0" HorizontalTextAlignment="End" FontSize="Large" VerticalOptions="Center" />
-                    
-            <Entry x:Name="NameEntry" Placeholder="Your Name" Grid.Row="1" Grid.Column="1"/>
-            <Entry x:Name="Age" Placeholder="Age"  Keyboard="Numeric" Grid.Row="2" Grid.Column="1">
-                        <Entry.Behaviors>
-                            <logic:NumericValidationBehavior />
-                        </Entry.Behaviors>
-                    </Entry>
-            <sfCombobox:SfComboBox x:Name="genderBox" HorizontalOptions="CenterAndExpand" Grid.Row="3" Grid.Column="1" WidthRequest="80"/>
-            <sfCombobox:SfComboBox x:Name="handBox" HorizontalOptions="CenterAndExpand" Grid.Row="4" Grid.Column="1" WidthRequest="80"/>
-                    
+
+            <Label Text="Some info about you" Grid.Row="0" HorizontalOptions="Center" HorizontalTextAlignment="Center" FontSize="Title" VerticalOptions="Center"/>
+            <ScrollView Grid.Row="1">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
                 
-                <Button Text="Continue"
+                        <Label Text="Name:" Grid.Row="0" Grid.Column="0" HorizontalTextAlignment="End" FontSize="Large" VerticalOptions="Center"/>
+                        <Label Text="Age:"  Grid.Row="1" Grid.Column="0" HorizontalTextAlignment="End" FontSize="Large"  VerticalOptions="Center"/>
+                        <Label Text="Gender:"  Grid.Row="2" Grid.Column="0"  HorizontalTextAlignment="End" FontSize="Large" VerticalOptions="Center" />
+                        <Label Text="Handedness:" Grid.Row="3" Grid.Column="0" HorizontalTextAlignment="End" FontSize="Large" VerticalOptions="Center" />
+                        <Label Text="Do you take any regular medication?"  Grid.Row="4" Grid.Column="0"  HorizontalTextAlignment="End" FontSize="Medium" VerticalOptions="Center" />
+                        <Label Text="Drugs:" Grid.Row="5" Grid.Column="0" HorizontalTextAlignment="End" FontSize="Medium" VerticalOptions="Center" x:Name="druglabel"/>
+                        <Label Text="Do you suffer from any neuropschychiatric disorder?"  Grid.Row="6" Grid.Column="0"  HorizontalTextAlignment="End" FontSize="Small" VerticalOptions="Center" />
+                        <Label Text="Disorders:" Grid.Row="7" Grid.Column="0" HorizontalTextAlignment="End" FontSize="Medium" VerticalOptions="Center" x:Name="disorderlabel"/>
+
                     
-                    Grid.ColumnSpan="2" Grid.Row="5"
+                        <Entry Grid.Row="0" Grid.Column="1" x:Name="NameEntry" Placeholder="Your nickname"/>
+                        <Entry Grid.Row="1" Grid.Column="1" x:Name="Age" Placeholder="Age"  Keyboard="Numeric">
+                            <Entry.Behaviors>
+                                <logic:NumericValidationBehavior />
+                            </Entry.Behaviors>
+                        </Entry>
+                        <sfCombobox:SfComboBox x:Name="genderBox" Grid.Row="2" Grid.Column="1" HorizontalOptions="Fill" />
+                        <sfCombobox:SfComboBox x:Name="handBox" Grid.Row="3" Grid.Column="1" HorizontalOptions="FillAndExpand"  />
+                        <sfCombobox:SfComboBox x:Name="drugBox" Grid.Row="4" Grid.Column="1" HorizontalOptions="Fill" />
+                        <Entry Grid.Row="5" Grid.Column="1" x:Name="DrugEntry" Placeholder="medications regularly used" FontSize="Small"/>
+                        <sfCombobox:SfComboBox x:Name="disorderBox" Grid.Row="6" Grid.Column="1" HorizontalOptions="FillAndExpand"  />
+                        <Entry Grid.Row="7" Grid.Column="1" x:Name="DisorderEntry" Placeholder="disorders you suffer from" FontSize="Small"/>
+            </Grid>
+
+
+            </ScrollView>
+
+
+
+
+            <Button Text="Continue"
+                    FontSize="Subtitle"
+                    Grid.Row="2"
                     HorizontalOptions="Center"
                     VerticalOptions="End"
                     Clicked="Button_Clicked"/>
 
-            <progressBar:SfStepProgressBar HorizontalOptions="Center" VerticalOptions="CenterAndExpand" Grid.Row="6"  Grid.ColumnSpan="2">
+            <progressBar:SfStepProgressBar HorizontalOptions="Center" VerticalOptions="CenterAndExpand" Grid.Row="3">
                 <progressBar:StepView PrimaryText="Privacy Policy" Status="Completed" />
                 <progressBar:StepView PrimaryText="Terms and Conditions" Status="Completed" />
                 <progressBar:StepView PrimaryText="Informations" Status="InProgress"/>
             </progressBar:SfStepProgressBar>
         </Grid>
-            
-        
+
+
     </ContentPage.Content>
 </ContentPage>

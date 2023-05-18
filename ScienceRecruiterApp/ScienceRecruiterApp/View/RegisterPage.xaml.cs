@@ -16,9 +16,12 @@ namespace ScienceRecruiterApp.View
     {
         public List<string> genderlist;
         public List<string> handlist;
+        public List<string> druglist;
         public RegisterPage()
         {
             InitializeComponent();
+            disorderlabel.TextColor = Color.FromRgba(0,0,0,0.1);
+            druglabel.TextColor = Color.FromRgba(0, 0, 0, 0.1);
             genderlist = new List<string>();
             genderlist.Add("female");
             genderlist.Add("male");
@@ -27,6 +30,38 @@ namespace ScienceRecruiterApp.View
             handlist.Add("left");
             handlist.Add("right");
             handBox.ComboBoxSource = handlist;
+            druglist = new List<string>();
+            druglist.Add("Yes");
+            druglist.Add("No");
+            druglist.Add("I wish not to answer");
+            drugBox.ComboBoxSource = druglist;
+            disorderBox.ComboBoxSource = druglist;
+            disorderBox.SelectionChanged += DisorderBox_SelectionChanged;
+            drugBox.SelectionChanged += DrugBox_SelectionChanged;
+        }
+
+        private void DrugBox_SelectionChanged(object sender, Syncfusion.XForms.ComboBox.SelectionChangedEventArgs e)
+        {
+            if (drugBox.SelectedIndex == 0)
+            {
+                druglabel.TextColor = Color.Black;
+            }
+            else
+            {
+                druglabel.TextColor = Color.FromRgba(0, 0, 0, 0.1);
+            }
+        }
+
+        private void DisorderBox_SelectionChanged(object sender, Syncfusion.XForms.ComboBox.SelectionChangedEventArgs e)
+        {
+            if (disorderBox.SelectedIndex == 0)
+            {
+                disorderlabel.TextColor = Color.Black;
+            }
+            else
+            {
+                disorderlabel.TextColor = Color.FromRgba(0, 0, 0, 0.1);
+            }
         }
 
         private async void Button_Clicked(object sender, EventArgs e)
@@ -56,6 +91,44 @@ namespace ScienceRecruiterApp.View
                 await DisplayAlert("Alert", "Select a dominant hand", "OK");
                 return;
             }
+            //check drug
+            if (drugBox.SelectedIndex == -1)
+            {
+                await DisplayAlert("Alert", "Question remain unanswered", "OK");
+                return;
+            }
+            //check drug 2
+            if (drugBox.SelectedIndex == 0)
+            {
+                if (String.IsNullOrWhiteSpace(DrugEntry.Text))
+                {
+                    await DisplayAlert("Alert", "Please fill out the entry!", "OK");
+                    return;
+                }
+                else
+                {
+                    
+                }
+            }
+            //check disorder
+            if (disorderBox.SelectedIndex == -1)
+            {
+                await DisplayAlert("Alert", "Question remain unanswered", "OK");
+                return;
+            }
+            //check disorder 2
+            if (disorderBox.SelectedIndex == 0)
+            {
+                if (String.IsNullOrWhiteSpace(DisorderEntry.Text))
+                {
+                    await DisplayAlert("Alert", "Please fill out the entry!", "OK");
+                    return;
+                }
+                else
+                {
+                    
+                }
+            }
 
             //Check if email already exist in db
             Logic.ApiLogic resultsLogic = new Logic.ApiLogic();
@@ -72,7 +145,10 @@ namespace ScienceRecruiterApp.View
             tempuser.age =  DateTime.Now.Year-Int32.Parse(Age.Text);
             tempuser.gender = genderlist[genderBox.SelectedIndex];
             tempuser.hand = handlist[handBox.SelectedIndex];
-
+            tempuser.isDisorder=druglist[disorderBox.SelectedIndex];
+            tempuser.isDrug = druglist[drugBox.SelectedIndex];
+            tempuser.Drug = DrugEntry.Text;
+            tempuser.Disorder = DisorderEntry.Text;
             //POST to local db
             SQLite.SQLiteConnection conn = new SQLite.SQLiteConnection(App.DataBaseLocation);
             conn.CreateTable<UserSpec>();

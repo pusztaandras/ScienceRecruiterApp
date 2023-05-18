@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace ScienceRecruiterApp.Model
 {
@@ -11,15 +12,16 @@ namespace ScienceRecruiterApp.Model
     {
 
         [PrimaryKey]
-        public int id { get; set; }
+        [JsonIgnore]
+        public int? id { get; set; }
 
-        public double meanRTLow { get; set; }
+        public int meanRTLow { get; set; }
 
-        public double meanRTHigh { get; set; }
+        public int meanRTHigh { get; set; }
 
-        public double meanSSDLow { get; set; }
+        public int meanSSDLow { get; set; }
 
-        public double meanSSDHigh { get; set; }
+        public int meanSSDHigh { get; set; }
 
         public double mOmmRatioH { get; set; }
 
@@ -28,9 +30,9 @@ namespace ScienceRecruiterApp.Model
         public double mCommRatioH { get; set; }
         public double mCommRatioL { get; set; }
 
-        public double SSRTiLow { get; set; }
+        public int SSRTiLow { get; set; }
 
-        public double SSRTiHigh { get; set; }
+        public int SSRTiHigh { get; set; }
 
         
 
