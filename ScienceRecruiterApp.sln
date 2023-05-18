@@ -176,5 +176,6 @@ Global
 		$0.TextStylePolicy = $12
 		$12.inheritsSet = null
 		$12.scope = text/x-vs
+		BaseDirectory = ScienceRecruiterApp
 	EndGlobalSection
 EndGlobal
