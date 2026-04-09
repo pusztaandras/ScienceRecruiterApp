@@ -8,12 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using Syncfusion;
 using System.Data;
-using Xamarin.Forms;
 
-using Xamarin.Forms.Xaml;
+using Microsoft.Maui.Controls.Xaml;
 using MySql.Data.MySqlClient;
 using Rg.Plugins.Popup.Extensions;
 using ScienceRecruiterApp.ViewModel;
+using Microsoft.Maui.Graphics;
+using Microsoft.Maui.Controls.Compatibility;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace ScienceRecruiterApp.View
 {
@@ -85,7 +88,7 @@ namespace ScienceRecruiterApp.View
                         {
                             new Frame
                             {
-                                BorderColor=Color.Black,
+                                BorderColor=Colors.Black,
                                 Padding = 0,
                                 Content=label
                             }
@@ -179,8 +182,8 @@ namespace ScienceRecruiterApp.View
                             },
                             new Frame
                             {
-                                BorderColor=Color.Black,
-                                BackgroundColor=Color.DarkOliveGreen,
+                                BorderColor=Colors.Black,
+                                BackgroundColor=Colors.DarkOliveGreen,
                                 Padding =5,
                                 Content=new Grid
                                 {
@@ -197,11 +200,11 @@ namespace ScienceRecruiterApp.View
                                     RowSpacing=0,
                                     Children =
                                     {
-                                        {new Label{Text="Parameter name", HorizontalTextAlignment=TextAlignment.Center, TextColor=Color.White}, 0,0 },
-                                        {new Label{Text="Mean", HorizontalTextAlignment=TextAlignment.Center,TextColor=Color.White}, 1,0 },
-                                        {new Label{Text="SD", HorizontalTextAlignment=TextAlignment.Center,TextColor=Color.White}, 2,0 },
-                                        {new Label{Text="Min", HorizontalTextAlignment=TextAlignment.Center,TextColor=Color.White}, 3,0 },
-                                        {new Label{Text="Max", HorizontalTextAlignment=TextAlignment.Center,TextColor=Color.White}, 4,0 }
+                                        {new Label{Text="Parameter name", HorizontalTextAlignment=TextAlignment.Center, TextColor=Colors.White}, 0,0 },
+                                        {new Label{Text="Mean", HorizontalTextAlignment=TextAlignment.Center,TextColor=Colors.White}, 1,0 },
+                                        {new Label{Text="SD", HorizontalTextAlignment=TextAlignment.Center,TextColor=Colors.White}, 2,0 },
+                                        {new Label{Text="Min", HorizontalTextAlignment=TextAlignment.Center,TextColor=Colors.White}, 3,0 },
+                                        {new Label{Text="Max", HorizontalTextAlignment=TextAlignment.Center,TextColor=Colors.White}, 4,0 }
                                     }
                                 }
                             },

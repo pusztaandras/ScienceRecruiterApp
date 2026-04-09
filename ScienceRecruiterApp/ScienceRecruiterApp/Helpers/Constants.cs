@@ -24,10 +24,10 @@ namespace ScienceRecruiterApp.Helpers
         public const string StroopPostUrl = "https://scirecapp.azurewebsites.net/api/ResultsStroop_";
         public const string StroopPutUrl = "https://scirecapp.azurewebsites.net/api/ResultsStroop_";
 
-        public const string ProgAetPostUrl= "https://scirecapp.azurewebsites.net/api/ResultsProgAet_";
-        public const string ProgAetPutUrl = "https://scirecapp.azurewebsites.net/api/ResultsProgAet_";
-        public const string ProgAetGetUrl = "https://scirecapp.azurewebsites.net/api/ResultsProgAet_";
-        public const string ProgAetDeleteUrl = "https://scirecapp.azurewebsites.net/api/ResultsProgAet_";
+        public const string ProgAetPostUrl= "https://scirecapp.azurewebsites.net/api/ResultsProgAet";
+        public const string ProgAetPutUrl = "https://scirecapp.azurewebsites.net/api/ResultsProgAet";
+        public const string ProgAetGetUrl = "https://scirecapp.azurewebsites.net/api/ResultsProgAet";
+        public const string ProgAetDeleteUrl = "https://scirecapp.azurewebsites.net/api/ResultsProgAet";
 
 
 

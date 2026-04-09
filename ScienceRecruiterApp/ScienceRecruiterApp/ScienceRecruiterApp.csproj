@@ -1,20 +1,21 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
     <ReleaseVersion>1.4</ReleaseVersion>
+    <BaseDirectory>..</BaseDirectory>
+    <TargetFrameworks>net9.0-ios;net9.0-android;net9.0</TargetFrameworks>
+    <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net9.0-windows10.0.19041.0</TargetFrameworks>
+    <UseMaui>True</UseMaui>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">11.0</SupportedOSPlatformVersion>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">13.1</SupportedOSPlatformVersion>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.19041.0</SupportedOSPlatformVersion>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
+    <OutputType>Library</OutputType>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <SingleProject>true</SingleProject>
   </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DebugType>full</DebugType>
-    <DebugSymbols>true</DebugSymbols>
-  </PropertyGroup>
-
   <ItemGroup>
-    
   </ItemGroup>
-
   <ItemGroup>
     <EmbeddedResource Include="Model\Tasks\AET\Pictures\4\1.png" />
     <EmbeddedResource Include="Model\Tasks\AET\Pictures\4\2.png" />
@@ -59,32 +60,30 @@
     <EmbeddedResource Include="Pictures\settings_icon.png" />
     <EmbeddedResource Include="Pictures\points.png" />
   </ItemGroup>
-
   <ItemGroup>
     <PackageReference Include="Microsoft.Azure.Mobile.Client" Version="4.2.0" />
     <PackageReference Include="Microsoft.Azure.Mobile.Client.SQLiteStore" Version="4.2.0" />
-    <PackageReference Include="Microsoft.Net.Http" Version="2.2.29" />
     <PackageReference Include="MySql.Data" Version="8.0.33" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="Rg.Plugins.Popup" Version="2.1.0" />
     <PackageReference Include="SkiaSharp" Version="2.88.3" />
-    <PackageReference Include="SkiaSharp.Views" Version="2.88.3" />
-    <PackageReference Include="SkiaSharp.Views.Forms" Version="2.88.3" />
     <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
-    <PackageReference Include="Syncfusion.Xamarin.Buttons" Version="21.2.5" />
-    <PackageReference Include="Syncfusion.Xamarin.Expander" Version="21.2.5" />
-    <PackageReference Include="Syncfusion.Xamarin.SfComboBox" Version="21.2.5" />
-    <PackageReference Include="Syncfusion.Xamarin.SfProgressBar" Version="21.2.5" />
-    <PackageReference Include="Syncfusion.Xamarin.SfRangeSlider" Version="21.2.5" />
-    <PackageReference Include="Syncfusion.Xamarin.SfTabView" Version="21.2.5" />
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2578" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.7.5" />
+    <PackageReference Include="Syncfusion.Xamarin.Buttons" Version="26.2.12" />
+    <PackageReference Include="Syncfusion.Xamarin.Expander" Version="26.2.12" />
+    <PackageReference Include="Syncfusion.Xamarin.SfComboBox" Version="26.2.12" />
+    <PackageReference Include="Syncfusion.Xamarin.SfProgressBar" Version="26.2.12" />
+    <PackageReference Include="Syncfusion.Xamarin.SfRangeSlider" Version="26.2.12" />
+    <PackageReference Include="Syncfusion.Xamarin.SfTabView" Version="26.2.12" />
     <PackageReference Include="CarouselView.FormsPlugin" Version="6.0.0" />
     <PackageReference Include="Plugin.Permissions" Version="6.0.1" />
-    <PackageReference Include="Syncfusion.Xamarin.SfChart" Version="21.2.5" />
+    <PackageReference Include="Syncfusion.Xamarin.SfChart" Version="26.2.12" />
     <PackageReference Include="ZstdNet" Version="1.4.5" />
+    <PackageReference Include="Xamarin.Auth" Version="1.7.0" />
+    <PackageReference Include="Syncfusion.Licensing" Version="26.2.12" />
+    <PackageReference Include="System.Net.Http" Version="4.3.4" />
+    <PackageReference Include="SkiaSharp.Views.Maui.Core" Version="2.88.8" />
+    <PackageReference Include="SkiaSharp.Views.Maui.Controls" Version="2.88.8" />
+    <PackageReference Include="SkiaSharp.Views.Maui.Controls.Compatibility" Version="2.88.8" />
   </ItemGroup>
-
   <ItemGroup>
     <Compile Update="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -96,7 +95,6 @@
       <DependentUpon>AnimationPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
-
   <ItemGroup>
     <EmbeddedResource Update="Model\Tasks\AET\InstrBlock_ProgAet.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>

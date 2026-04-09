@@ -5,9 +5,11 @@ using System.Linq;
 using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
-
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+using Microsoft.Maui.Controls.Xaml;
+using Microsoft.Maui.Graphics;
+using Microsoft.Maui.Controls.Compatibility;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace ScienceRecruiterApp.View
 {
@@ -44,7 +46,7 @@ namespace ScienceRecruiterApp.View
         {
             if (drugBox.SelectedIndex == 0)
             {
-                druglabel.TextColor = Color.Black;
+                druglabel.TextColor = Colors.Black;
             }
             else
             {
@@ -56,7 +58,7 @@ namespace ScienceRecruiterApp.View
         {
             if (disorderBox.SelectedIndex == 0)
             {
-                disorderlabel.TextColor = Color.Black;
+                disorderlabel.TextColor = Colors.Black;
             }
             else
             {

@@ -11,7 +11,6 @@ using System.Net.Http;
 using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
-using Xamarin.Essentials;
 using ScienceRecruiterApp.Model;
 
 namespace ScienceRecruiterApp.Logic
@@ -38,7 +37,7 @@ namespace ScienceRecruiterApp.Logic
             }
             catch (Exception ex)
             {
-
+                Debug.WriteLine(ex.Message);
             }
 
             return list;
@@ -66,7 +65,7 @@ namespace ScienceRecruiterApp.Logic
             }
             catch (Exception ex)
             {
-
+                Debug.WriteLine(ex.Message);
             }
 
 
@@ -117,7 +116,7 @@ namespace ScienceRecruiterApp.Logic
                 }
                 catch (Exception ex)
                 {
-
+                    Debug.WriteLine(ex.Message);
                 }
             }
             return list;
@@ -138,8 +137,9 @@ namespace ScienceRecruiterApp.Logic
                 }
                 return true;
             }
-            catch
+            catch(Exception ex)
             {
+                Debug.WriteLine(ex.Message);
                 return false;
             }
 
@@ -162,7 +162,7 @@ namespace ScienceRecruiterApp.Logic
             }
             catch (Exception ex)
             {
-
+                Debug.WriteLine(ex.Message);
             }
 
         }
@@ -192,8 +192,9 @@ namespace ScienceRecruiterApp.Logic
                 }
                 return true;
             }
-            catch
+            catch(Exception ex)
             {
+                Debug.WriteLine(ex.Message);
                 return false;
             }
 
@@ -225,8 +226,9 @@ namespace ScienceRecruiterApp.Logic
                 }
                 return true;
             }
-            catch
+            catch(Exception ex)
             {
+                Debug.WriteLine(ex.Message);
                 return false;
             }
 

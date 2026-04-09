@@ -6,9 +6,11 @@ using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+using Microsoft.Maui.Controls.Xaml;
+using Microsoft.Maui.Graphics;
+using Microsoft.Maui.Controls.Compatibility;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace ScienceRecruiterApp.Model.Tasks.AET
 {
@@ -173,7 +175,7 @@ namespace ScienceRecruiterApp.Model.Tasks.AET
                     Dispatcher.BeginInvokeOnMainThread(() =>
                     {
                         FeedbackImage.Text = "Correct!";
-                        FeedbackImage.TextColor = Color.Green;
+                        FeedbackImage.TextColor = Colors.Green;
                         FeedbackView.IsVisible = true;
                     });
                     currACC = 1;
@@ -183,7 +185,7 @@ namespace ScienceRecruiterApp.Model.Tasks.AET
                     Dispatcher.BeginInvokeOnMainThread(() =>
                     {
                         FeedbackImage.Text = "Wrong!";
-                        FeedbackImage.TextColor = Color.Red;
+                        FeedbackImage.TextColor = Colors.Red;
                         FeedbackView.IsVisible = true;
                     });
                     currACC = 0;
@@ -194,7 +196,7 @@ namespace ScienceRecruiterApp.Model.Tasks.AET
                 Dispatcher.BeginInvokeOnMainThread(() =>
                 {
                     FeedbackImage.Text = "Late!";
-                    FeedbackImage.TextColor = Color.Red;
+                    FeedbackImage.TextColor = Colors.Red;
                     FeedbackView.IsVisible = true;
                 });
                 currACC = 0;

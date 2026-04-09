@@ -5,9 +5,11 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+using Microsoft.Maui.Controls.Xaml;
+using Microsoft.Maui.Graphics;
+using Microsoft.Maui.Controls.Compatibility;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace ScienceRecruiterApp.View
 {
@@ -44,7 +46,7 @@ namespace ScienceRecruiterApp.View
             else
             {
                 await DisplayAlert("Alert", "You need to accept before continue", "OK");
-                CheckBox_accept.TextColor = Color.Red;
+                CheckBox_accept.TextColor = Colors.Red;
                 return;
             }
         }

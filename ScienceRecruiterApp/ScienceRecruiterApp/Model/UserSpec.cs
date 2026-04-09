@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SQLite;
-using Xamarin.Essentials;
-using Xamarin.Forms;
 using Newtonsoft.Json;
+using Microsoft.Maui.Controls.Compatibility;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 namespace ScienceRecruiterApp.Model
 {
     public class UserSpec

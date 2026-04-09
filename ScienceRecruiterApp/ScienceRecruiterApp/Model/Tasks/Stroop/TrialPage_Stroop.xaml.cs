@@ -6,9 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+using Microsoft.Maui.Controls.Xaml;
+using Microsoft.Maui.Graphics;
+using Microsoft.Maui.Controls.Compatibility;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace ScienceRecruiterApp.Model.Tasks.Stroop
 {
@@ -148,7 +150,7 @@ namespace ScienceRecruiterApp.Model.Tasks.Stroop
                 Dispatcher.BeginInvokeOnMainThread(() =>
                 {
                     Textlabel.Text = "Too Late!";
-                    Textlabel.TextColor = Color.Black;
+                    Textlabel.TextColor = Colors.Black;
                 });
                 Savetrial(0, Convert.ToInt32(stopwatcha.ElapsedMilliseconds));
             }
@@ -159,7 +161,7 @@ namespace ScienceRecruiterApp.Model.Tasks.Stroop
                     Dispatcher.BeginInvokeOnMainThread(() =>
                     {
                         Textlabel.Text = "Correct!";
-                        Textlabel.TextColor = Color.Black;
+                        Textlabel.TextColor = Colors.Black;
                     });
                     Savetrial(1, Convert.ToInt32(stopwatcha.ElapsedMilliseconds));
                 }
@@ -168,7 +170,7 @@ namespace ScienceRecruiterApp.Model.Tasks.Stroop
                     Dispatcher.BeginInvokeOnMainThread(() =>
                     {
                         Textlabel.Text = "Incorrect!";
-                        Textlabel.TextColor = Color.Black;
+                        Textlabel.TextColor = Colors.Black;
                     });
                     Savetrial(0, Convert.ToInt32(stopwatcha.ElapsedMilliseconds));
                 }
@@ -206,13 +208,13 @@ namespace ScienceRecruiterApp.Model.Tasks.Stroop
             switch (colorname)
             {
                 case "Red":
-                    return Color.Red;
+                    return Colors.Red;
                 case "Green":
-                    return Color.Green;
+                    return Colors.Green;
                 case "Blue":
-                    return Color.Blue;
+                    return Colors.Blue;
                 default:
-                    return Color.White;
+                    return Colors.White;
             }
         }
 

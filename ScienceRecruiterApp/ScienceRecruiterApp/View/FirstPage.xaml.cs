@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+using Microsoft.Maui.Controls.Xaml;
 using System.Reflection;
+using Microsoft.Maui.Graphics;
+using Microsoft.Maui.Controls.Compatibility;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace ScienceRecruiterApp.View
 {
@@ -18,6 +21,7 @@ namespace ScienceRecruiterApp.View
         public string PrivacyText{
             get
             {
+                
                 var assembly = IntrospectionExtensions.GetTypeInfo(typeof(FirstPage)).Assembly;
                 Stream stream = assembly.GetManifestResourceStream("ScienceRecruiterApp.Pictures.pp.txt");
                 string text = "";
@@ -49,7 +53,7 @@ namespace ScienceRecruiterApp.View
             else
             {
                 await DisplayAlert("Alert", "You need to accept before continue", "OK");
-                CheckBox_accept.TextColor = Color.Red;
+                CheckBox_accept.TextColor = Colors.Red;
                 return;
             }
         }

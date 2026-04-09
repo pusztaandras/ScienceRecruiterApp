@@ -1,12 +1,14 @@
 ﻿using System;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+using Microsoft.Maui.Controls.Xaml;
 using SQLite;
 using System.Collections.Generic;
 using ScienceRecruiterApp.Model;
 using ScienceRecruiterApp.View;
 using Microsoft.WindowsAzure.MobileServices;
 using ScienceRecruiterApp.Model.Tasks.Stroop;
+using Microsoft.Maui.Controls.Compatibility;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace ScienceRecruiterApp
 {
@@ -34,7 +36,7 @@ namespace ScienceRecruiterApp
 
         public App(string dbLocation)
         {
-            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MTk5MDc2MkAzMjMxMmUzMjJlMzNMQjcvZ0grSXR4SlBDMHE1RWNiS09rVUV0bWtvWjlJY0VmRzlON2d6MDFZPQ==");
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MzQ1NzUxNEAzMjM2MmUzMDJlMzBpSGFrT1RiczhpMVRTaDVCZXM2ZmtyL2o0TkxCeHlUaUhPWjhVNFR3Mzk4PQ==");
             InitializeComponent();
             DataBaseLocation = dbLocation;
             

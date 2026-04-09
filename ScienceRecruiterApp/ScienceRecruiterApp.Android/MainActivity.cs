@@ -23,6 +23,7 @@ namespace ScienceRecruiterApp.Droid
         {
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MzQ1NzUxNEAzMjM2MmUzMDJlMzBpSGFrT1RiczhpMVRTaDVCZXM2ZmtyL2o0TkxCeHlUaUhPWjhVNFR3Mzk4PQ==");
 
             base.OnCreate(savedInstanceState);
 

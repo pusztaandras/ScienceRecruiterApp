@@ -13,10 +13,14 @@ using ScienceRecruiterApp.Model.Tasks.SST;
 using ScienceRecruiterApp.View;
 using ScienceRecruiterApp.ViewModel;
 using SkiaSharp;
-using SkiaSharp.Views.Forms;
 using SQLite;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+using Microsoft.Maui.Controls.Xaml;
+using Microsoft.Maui.Controls.Compatibility;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
+using SkiaSharp.Views.Maui.Controls;
+using SkiaSharp.Views.Maui;
+using Microsoft.Maui.Devices;
 
 namespace ScienceRecruiterApp
 {
@@ -67,7 +71,7 @@ namespace ScienceRecruiterApp
                 conn.CreateTable<SavedTrials>();
                 conn.DeleteAll<SavedTrials>();
             }
-            radius = Convert.ToSingle(((Xamarin.Essentials.DeviceDisplay.MainDisplayInfo.Height) / 2) * 0.5);
+            radius = Convert.ToSingle(((Microsoft.Maui.Devices.DeviceDisplay.MainDisplayInfo.Height) / 2) * 0.5);
             currBlockNum = 1;
             DoSession();
 
@@ -573,35 +577,35 @@ namespace ScienceRecruiterApp
 
             if ((1 - savedTrials.Where(a => a.TrialType == "Stop").Average(x => x.Commission)) < 0.4)
             {
-                Accuracy.TextColor = Xamarin.Forms.Color.Red;
+                Accuracy.TextColor = Microsoft.Maui.Graphics.Colors.Red;
                 if (savedTrials.Where(a => a.TrialType == "Go").Average(x => x.RT) > 600)
                 {
-                    RT.TextColor = Xamarin.Forms.Color.Red;
+                    RT.TextColor = Microsoft.Maui.Graphics.Colors.Red;
                     Additional.Text = "You are too slow and inaccurate! Pay attention!";
-                    Additional.TextColor = Xamarin.Forms.Color.Red;
+                    Additional.TextColor = Microsoft.Maui.Graphics.Colors.Red;
                 }
                 else
                 {
-                    RT.TextColor = Xamarin.Forms.Color.Green;
+                    RT.TextColor = Microsoft.Maui.Graphics.Colors.Green;
                     Additional.Text = "Fast but inaccurate! Pay attention!";
-                    Additional.TextColor = Xamarin.Forms.Color.Yellow;
+                    Additional.TextColor = Microsoft.Maui.Graphics.Colors.Yellow;
                 }
 
             }
             else
             {
-                Accuracy.TextColor = Xamarin.Forms.Color.Green;
+                Accuracy.TextColor = Microsoft.Maui.Graphics.Colors.Green;
                 if (savedTrials.Where(a => a.TrialType == "Go").Average(x => x.RT) > 600)
                 {
-                    RT.TextColor = Xamarin.Forms.Color.Red;
+                    RT.TextColor = Microsoft.Maui.Graphics.Colors.Red;
                     Additional.Text = "You are too slow! Try faster!";
-                    Additional.TextColor = Xamarin.Forms.Color.Yellow;
+                    Additional.TextColor = Microsoft.Maui.Graphics.Colors.Yellow;
                 }
                 else
                 {
-                    RT.TextColor = Xamarin.Forms.Color.Green;
+                    RT.TextColor = Microsoft.Maui.Graphics.Colors.Green;
                     Additional.Text = "Outstanding! You are a Jack Bauer! Keep goin'!";
-                    Additional.TextColor = Xamarin.Forms.Color.Green;
+                    Additional.TextColor = Microsoft.Maui.Graphics.Colors.Green;
                 }
             }
 

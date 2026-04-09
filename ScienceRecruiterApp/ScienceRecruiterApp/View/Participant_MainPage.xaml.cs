@@ -3,7 +3,6 @@ using ScienceRecruiterApp.Model.Tasks;
 using ScienceRecruiterApp.Model.Tasks.SST;
 using ScienceRecruiterApp.Model.Tasks.Stroop;
 using SkiaSharp;
-using SkiaSharp.Views.Forms;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -11,9 +10,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using Xamarin.Forms;
-
-using Xamarin.Forms.Xaml;
+using Microsoft.Maui.Controls.Xaml;
+using Microsoft.Maui.Controls.Compatibility;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
+using SkiaSharp.Views.Maui.Controls;
+using SkiaSharp.Views.Maui;
 
 namespace ScienceRecruiterApp.View
 {
